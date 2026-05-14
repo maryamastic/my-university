@@ -1,208 +1,272 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-const programLinks = [
-  { label: "Bachelor's Programs", href: "/programs/bachelors", desc: "3-year undergraduate degrees" },
-  { label: "Master's Programs", href: "/programs/masters", desc: "2-year postgraduate degrees" },
-  { label: "All Programs", href: "/programs", desc: "Browse the full catalog" },
-];
+const megaData: Record<string, { cols: { head: string; links: { label: string; href: string }[] }[] }> = {
+  School: {
+    cols: [
+      { head: "The School", links: [
+        { label: "About Us", href: "/about" },
+        { label: "The New Campus", href: "/about" },
+        { label: "Accreditations & Labels", href: "/about" },
+        { label: "Our CSR Approach", href: "/about" },
+        { label: "Rankings", href: "/about" },
+        { label: "News", href: "/about" },
+        { label: "Partnerships & Networks", href: "/about" },
+      ]},
+    ],
+  },
+  Programs: {
+    cols: [
+      { head: "Bachelor's Degree", links: [
+        { label: "International Bachelor in Management", href: "/programs/bachelors" },
+        { label: "Bachelor in Digital Marketing", href: "/programs/bachelors" },
+        { label: "Bachelor in Tourism & Hospitality", href: "/programs/bachelors" },
+        { label: "Bachelor in Hotel Management", href: "/programs/bachelors" },
+      ]},
+      { head: "Master's / MSc", links: [
+        { label: "MBA – Master of Business Administration", href: "/programs/masters" },
+        { label: "MSc Supply Chain Management", href: "/programs/masters" },
+        { label: "MSc International Finance", href: "/programs/masters" },
+        { label: "MSc International Management", href: "/programs/masters" },
+        { label: "Master in International Business", href: "/programs/masters" },
+        { label: "MSc Tourism & Hospitality Management", href: "/programs/masters" },
+      ]},
+      { head: "Executive Education", links: [
+        { label: "MBA Full-Time", href: "/programs/masters" },
+        { label: "MBA Part-Time", href: "/programs/masters" },
+        { label: "DBA – Doctorate of Business Administration", href: "/programs/masters" },
+        { label: "Other Executive Programs", href: "/programs/masters" },
+      ]},
+      { head: "All Programs", links: [
+        { label: "Browse All Programs", href: "/programs" },
+        { label: "Short Programs", href: "/programs" },
+        { label: "Exchange Programs", href: "/programs" },
+      ]},
+    ],
+  },
+  Admissions: {
+    cols: [
+      { head: "Admissions by Program", links: [
+        { label: "Bachelor's Degree", href: "/contact" },
+        { label: "Master's / MSc", href: "/contact" },
+        { label: "MBA", href: "/contact" },
+        { label: "DBA", href: "/contact" },
+      ]},
+      { head: "Admission Methods", links: [
+        { label: "How to Apply", href: "/contact" },
+        { label: "Tuition Fees", href: "/contact" },
+        { label: "Scholarships & Funding", href: "/contact" },
+        { label: "Apply Online", href: "/contact" },
+      ]},
+    ],
+  },
+  International: {
+    cols: [
+      { head: "International", links: [
+        { label: "International Affairs", href: "/about" },
+        { label: "Grants & Financing", href: "/about" },
+        { label: "Partner Universities", href: "/about" },
+        { label: "International Students", href: "/about" },
+      ]},
+    ],
+  },
+  "Student Services": {
+    cols: [
+      { head: "Professionalization", links: [
+        { label: "Internships", href: "/about" },
+        { label: "Apprenticeships", href: "/about" },
+        { label: "Partner Companies", href: "/about" },
+        { label: "Career Services", href: "/about" },
+      ]},
+      { head: "Student Life", links: [
+        { label: "Student Associations", href: "/about" },
+        { label: "Student Housing", href: "/about" },
+        { label: "Financing Your Studies", href: "/about" },
+        { label: "Diversity & Inclusion", href: "/about" },
+      ]},
+    ],
+  },
+};
+
+const navItems = ["School", "Programs", "Admissions", "International", "Student Services"];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [programsOpen, setProgramsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const open = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActive(label);
+  };
+  const close = () => {
+    closeTimer.current = setTimeout(() => setActive(null), 100);
+  };
+  const cancelClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  };
 
-  const textColor = scrolled ? "#1a1a2e" : "#f8f4ef";
+  useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
 
   return (
-    <nav style={{
-      position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-      background: scrolled ? "rgba(248,244,239,0.97)" : "rgba(13,27,46,0.55)",
-      backdropFilter: "blur(14px)",
-      borderBottom: scrolled ? "1px solid rgba(201,168,76,0.25)" : "1px solid rgba(248,244,239,0.08)",
-      padding: "0 2rem",
-      transition: "background 0.4s, border-color 0.4s",
-    }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: "72px" }}>
+    <>
+      {/* ── TOP UTILITY BAR ── */}
 
-        {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          <motion.div whileHover={{ scale: 1.05 }}
-            style={{ width: "36px", height: "36px", border: "1px solid #c9a84c", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1rem", fontWeight: 700, color: "#c9a84c" }}>GU</span>
-          </motion.div>
-          <div>
-            <p style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.05rem", fontWeight: 600, color: textColor, lineHeight: 1.1, transition: "color 0.4s" }}>
-              Global University
-            </p>
-            <p style={{ fontSize: "0.58rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "#c9a84c" }}>
-              Excellence in Education
-            </p>
-          </div>
-        </Link>
+      {/* ── MAIN NAV ── */}
+      <nav style={{ background: "#fff", position: "sticky", top: 0, zIndex: 200, boxShadow: "0 2px 16px rgba(0,0,0,0.2)" }}>
+        <div className="container" style={{ display: "flex", alignItems: "stretch", justifyContent: "space-between", height: "64px" }}>
 
-        {/* Desktop links */}
-        <div style={{ display: "flex", alignItems: "center", gap: "2.5rem" }} className="desktop-nav">
-          <NavLink href="/" label="Home" textColor={textColor} />
-          <NavLink href="/about" label="About" textColor={textColor} />
+          {/* Logo */}
+          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", paddingRight: "24px" }}>
+            <div>
+              <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "20px", fontWeight: 800, color: "#003366", lineHeight: 1.05 }}>Global</div>
+              <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "20px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05 }}>University</div>
+            </div>
+          </Link>
 
-          {/* Programs dropdown */}
-          <div style={{ position: "relative" }}
-            onMouseEnter={() => setProgramsOpen(true)}
-            onMouseLeave={() => setProgramsOpen(false)}>
-            <span style={{
-              fontFamily: "DM Sans, sans-serif", fontSize: "0.78rem",
-              letterSpacing: "0.12em", textTransform: "uppercase" as const,
-              color: programsOpen ? "#c9a84c" : textColor,
-              cursor: "pointer", position: "relative", paddingBottom: "4px",
-              display: "flex", alignItems: "center", gap: "5px",
-              transition: "color 0.25s",
-            }}>
-              Programs
-              <motion.span animate={{ rotate: programsOpen ? 180 : 0 }} transition={{ duration: 0.25 }}
-                style={{ display: "inline-block", fontSize: "0.6rem" }}>▾</motion.span>
-              <motion.span
-                style={{ position: "absolute", bottom: 0, left: 0, height: "1.5px", background: "#c9a84c" }}
-                initial={{ width: 0 }}
-                animate={{ width: programsOpen ? "100%" : 0 }}
-                transition={{ duration: 0.25 }}
-              />
-            </span>
-
-            <AnimatePresence>
-              {programsOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10, scaleY: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scaleY: 1 }}
-                  exit={{ opacity: 0, y: -10, scaleY: 0.9 }}
-                  transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
-                  style={{
-                    position: "absolute", top: "calc(100% + 18px)", left: "50%",
-                    transform: "translateX(-50%)", transformOrigin: "top center",
-                    background: "#fff", border: "1px solid rgba(201,168,76,0.2)",
-                    minWidth: "250px", padding: "0.75rem 0",
-                    boxShadow: "0 16px 48px rgba(13,27,46,0.12)",
-                  }}>
-                  {/* Arrow tip */}
-                  <div style={{
-                    position: "absolute", top: "-6px", left: "50%",
-                    transform: "translateX(-50%) rotate(45deg)",
-                    width: "10px", height: "10px", background: "#fff",
-                    border: "1px solid rgba(201,168,76,0.2)",
-                    borderRight: "none", borderBottom: "none",
-                  }} />
-                  {programLinks.map((item, i) => (
-                    <DropdownItem key={item.href} item={item} index={i} onClose={() => setProgramsOpen(false)} />
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+          {/* Desktop nav items */}
+          <div style={{ display: "flex", alignItems: "stretch" }} className="desktop-nav">
+            {navItems.map((label) => (
+              <div key={label} style={{ display: "flex", alignItems: "stretch" }}
+                onMouseEnter={() => open(label)} onMouseLeave={close}>
+                <button style={{
+                  background: "none", border: "none", cursor: "pointer",
+                  fontFamily: "Montserrat, sans-serif", fontSize: "12px", fontWeight: 700,
+                  color: active === label ? "#000" : "#000",
+                  padding: "0 14px", height: "100%",
+                  display: "flex", alignItems: "center", gap: "5px",
+                  borderBottom: active === label ? "3px solid #e84e0f" : "3px solid transparent",
+                  transition: "color 0.2s, border-color 0.2s",
+                  whiteSpace: "nowrap",
+                }}>
+                  {label}
+                  <motion.span animate={{ rotate: active === label ? 180 : 0 }} transition={{ duration: 0.2 }}
+                    style={{ display: "inline-block", fontSize: "9px", opacity: 0.6 }}>▾</motion.span>
+                </button>
+              </div>
+            ))}
           </div>
 
-          <NavLink href="/contact" label="Contact" textColor={textColor} />
+          {/* Apply and brochure button */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }} className="desktop-nav">
+  <Link href="/contact" className="btn btn-orange" style={{ fontSize: "11px" }}>Apply Online</Link>
+  <Link href="/contact" className="btn btn-orange" style={{ fontSize: "11px" }}>Brochure</Link>
+</div>
 
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-            <Link href="/contact" className="btn-gold" style={{ fontSize: "0.72rem", padding: "0.6rem 1.5rem" }}>
-              Apply Now
-            </Link>
-          </motion.div>
+          {/* Hamburger */}
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="hamburger"
+            style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "1.5rem", padding: "0 1rem" }}>
+            {mobileOpen ? "✕" : "☰"}
+          </button>
         </div>
 
-        {/* Hamburger */}
-        <button onClick={() => setMenuOpen(!menuOpen)}
-          style={{ background: "none", border: "none", color: textColor, fontSize: "1.4rem", cursor: "pointer", display: "none", transition: "color 0.4s" }}
-          className="hamburger">
-          {menuOpen ? "✕" : "☰"}
-        </button>
-      </div>
+        {/* ── MEGA MENU PANEL ── */}
+        <AnimatePresence>
+          {active && megaData[active] && (
+            <motion.div key={active}
+              initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.16 }}
+              onMouseEnter={cancelClose} onMouseLeave={close}
+              style={{
+                position: "absolute", top: "100%", left: 0, right: 0,
+                background: "#fff", 
+                boxShadow: "0 12px 40px rgba(0,0,0,0.15)", zIndex: 500,
+              }}>
+              <div className="container" style={{
+                padding: "32px 2rem",
+                display: "grid",
+                gridTemplateColumns: `repeat(${megaData[active].cols.length}, 1fr)`,
+                gap: "24px",
+              }}>
+                {megaData[active].cols.map((col) => (
+                  <div key={col.head}>
+                    <p style={{
+                      fontFamily: "Montserrat, sans-serif", fontSize: "10px", fontWeight: 800,
+                      letterSpacing: "0.15em", textTransform: "uppercase", color: "#003366",
+                      paddingBottom: "8px", borderBottom: "2px solid #e84e0f", marginBottom: "10px",
+                    }}>{col.head}</p>
+                    {col.links.map((link) => (
+                      <MegaLink key={link.label} href={link.href} label={link.label} onClose={() => setActive(null)} />
+                    ))}
+                    {col.head === "All Programs" && (
+                      <div style={{ marginTop: "16px" }}>
+                        <Link href="/programs" className="btn btn-orange" style={{ fontSize: "10px", padding: "9px 16px" }}
+                          onClick={() => setActive(null)}>
+                          View All
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            style={{ background: "#fff", borderTop: "1px solid rgba(201,168,76,0.2)", overflow: "hidden" }}>
-            <div style={{ padding: "1.5rem 2rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-              {[
-                { label: "Home", href: "/" }, { label: "About", href: "/about" },
-                { label: "All Programs", href: "/programs" },
-                { label: "Bachelor's", href: "/programs/bachelors" },
-                { label: "Master's", href: "/programs/masters" },
-                { label: "Contact", href: "/contact" },
-              ].map((item) => (
-                <Link key={item.label} href={item.href} onClick={() => setMenuOpen(false)}
-                  style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.9rem", color: "#1a1a2e", textDecoration: "none" }}>
-                  {item.label}
-                </Link>
-              ))}
-              <Link href="/contact" className="btn-gold" style={{ textAlign: "center", marginTop: "0.5rem" }}>Apply Now</Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* ── MOBILE MENU ── */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.28 }}
+              style={{ background: "#002244", overflow: "hidden", position: "absolute", top: "100%", left: 0, right: 0, zIndex: 400, maxHeight: "80vh", overflowY: "auto" }}>
+              <div style={{ padding: "1rem 2rem 2rem" }}>
+                {navItems.map((label) => (
+                  <div key={label} style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                    <button onClick={() => setMobileExpanded(mobileExpanded === label ? null : label)}
+                      style={{ width: "100%", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff" }}>
+                      {label}
+                      <span style={{ fontSize: "9px", opacity: 0.6 }}>{mobileExpanded === label ? "▲" : "▾"}</span>
+                    </button>
+                    {mobileExpanded === label && megaData[label] && (
+                      <div style={{ paddingLeft: "16px", paddingBottom: "12px" }}>
+                        {megaData[label].cols.map((col) => (
+                          <div key={col.head} style={{ marginBottom: "12px" }}>
+                            <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "9px", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "6px" }}>{col.head}</p>
+                            {col.links.map((link) => (
+                              <Link key={link.label} href={link.href} onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
+                                style={{ display: "block", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "4px 0" }}>
+                                {link.label}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <div style={{ marginTop: "20px" }}>
+                  <Link href="/contact" className="btn btn-orange" style={{ width: "100%", justifyContent: "center" }}
+                    onClick={() => setMobileOpen(false)}>
+                    Apply Online
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 960px) {
           .desktop-nav { display: none !important; }
-          .hamburger { display: block !important; }
+          .hamburger { display: flex !important; }
         }
       `}</style>
-    </nav>
+    </>
   );
 }
 
-function NavLink({ href, label, textColor }: { href: string; label: string; textColor: string }) {
-  const [hovered, setHovered] = useState(false);
+function MegaLink({ href, label, onClose }: { href: string; label: string; onClose: () => void }) {
+  const [hov, setHov] = useState(false);
   return (
-    <Link href={href}
-      style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.78rem", letterSpacing: "0.12em", textTransform: "uppercase", textDecoration: "none", color: hovered ? "#c9a84c" : textColor, transition: "color 0.25s", position: "relative", paddingBottom: "4px" }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}>
+    <Link href={href} onClick={onClose}
+      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+      style={{ display: "flex", alignItems: "center", gap: "4px", padding: "5px 0", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: hov ? "#e84e0f" : "#333", textDecoration: "none", transition: "color 0.15s" }}>
+      {hov && <span style={{ color: "#e84e0f", fontSize: "11px", fontWeight: 700 }}>›</span>}
       {label}
-      <motion.span
-        style={{ position: "absolute", bottom: 0, left: 0, height: "1.5px", background: "#c9a84c" }}
-        initial={{ width: 0 }}
-        animate={{ width: hovered ? "100%" : 0 }}
-        transition={{ duration: 0.25 }}
-      />
     </Link>
-  );
-}
-
-function DropdownItem({ item, index, onClose }: { item: typeof programLinks[0]; index: number; onClose: () => void }) {
-  const [hovered, setHovered] = useState(false);
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -8 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: index * 0.07, duration: 0.2 }}>
-      <Link href={item.href} onClick={onClose}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        style={{
-          display: "block", padding: "0.8rem 1.5rem", textDecoration: "none",
-          borderLeft: hovered ? "2px solid #c9a84c" : "2px solid transparent",
-          background: hovered ? "#faf7f2" : "transparent",
-          transition: "all 0.2s",
-        }}>
-        <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.83rem", color: hovered ? "#c9a84c" : "#1a1a2e", fontWeight: 500, transition: "color 0.2s" }}>
-          {item.label}
-        </p>
-        <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem", color: "#8a9090", marginTop: "3px" }}>
-          {item.desc}
-        </p>
-      </Link>
-    </motion.div>
   );
 }
