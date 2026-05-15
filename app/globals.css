@@ -73,7 +73,16 @@ nav {
   border-color: var(--orange);
 }
 .btn-orange:hover { background: var(--orange-dk); border-color: var(--orange-dk); }
+.btn-outline-orange {
+  background: transparent;
+  color: #0d1b2e;
+  border: 1.5px solid #ff6b2b;
+}
 
+.btn-outline-orange:hover {
+  background: #ff6b2b;
+  color: #fff;
+}
 /* Solid navy — secondary CTA */
 .btn-navy {
   background: var(--navy);

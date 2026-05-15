@@ -24,7 +24,7 @@ function SI({ label }: { label: string }) {
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#003366" }}>
+    <footer style={{ background: "  #0d1b2e" }}>
       <div className="container" style={{ padding: "48px 2rem 36px", display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "36px" }}>
 
         {/* Brand */}
