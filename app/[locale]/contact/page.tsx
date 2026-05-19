@@ -120,16 +120,16 @@ export default function ContactPage() {
             <div style={{ width: "48px", height: "4px", background: "#e84e0f", marginBottom: "2.5rem" }} />
 
             {/* Info card */}
-            <div style={{ background: "#003366", padding: "2.5rem", marginBottom: "0" }}>
+            <div style={{ background: "#f8f4ef", padding: "2.5rem", marginBottom: "0" }}>
               {/* Admissions email */}
               <div style={{ marginBottom: "1.75rem", paddingBottom: "1.75rem", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
                 <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.4rem" }}>
                   {t("admissionsLabel")}
                 </p>
                 <a href="mailto:admissions@globaluniversity.edu"
-                  style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}>
+                  style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)", textDecoration: "none" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(0, 0, 0, 0.75)")}>
                   admissions@globaluniversity.edu
                 </a>
               </div>
@@ -141,8 +141,8 @@ export default function ContactPage() {
                 </p>
                 <a href="mailto:info@globaluniversity.edu"
                   style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}>
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(0, 0, 0, 0.75)")}>
                   info@globaluniversity.edu
                 </a>
               </div>
@@ -152,7 +152,7 @@ export default function ContactPage() {
                 <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.4rem" }}>
                   {t("phoneLabel")}
                 </p>
-                <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.75)" }}>
+                <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)" }}>
                   +44 (0) 20 7123 4567
                 </p>
               </div>
@@ -162,7 +162,7 @@ export default function ContactPage() {
                 <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.4rem" }}>
                   {t("addressLabel")}
                 </p>
-                <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8 }}>
+                <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)", lineHeight: 1.8 }}>
                   123 University Avenue<br />London, EC1A 1BB<br />United Kingdom
                 </p>
               </div>
@@ -172,7 +172,7 @@ export default function ContactPage() {
                 <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.4rem" }}>
                   {t("hoursLabel")}
                 </p>
-                <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, whiteSpace: "pre-line" }}>
+                <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)", lineHeight: 1.8, whiteSpace: "pre-line" }}>
                   {t("hoursVal")}
                 </p>
               </div>
