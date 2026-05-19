@@ -1,4 +1,38 @@
 {
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "programs": "Programmes",
+    "contact": "Contact",
+    "contactUs": "Nous contacter",
+    "openDay": "Journée Portes Ouvertes",
+    "applyOnline": "Candidater en ligne",
+    "mega": {
+      "bachelorsHead": "Licence / Bachelor",
+      "bachelor1": "Bachelor International en Management",
+      "bachelor2": "Bachelor Marketing Digital",
+      "bachelor3": "Bachelor Tourisme & Hôtellerie",
+      "bachelor4": "Bachelor Gestion Hôtelière",
+      "mastersHead": "Master / MSc",
+      "master1": "MBA – Master en Administration des Affaires",
+      "master2": "MSc Gestion de la Chaîne Logistique",
+      "master3": "MSc Finance Internationale",
+      "master4": "MSc Management International",
+      "master5": "Master en Commerce International",
+      "master6": "MSc Tourisme & Hôtellerie",
+      "execHead": "Formation Executive",
+      "exec1": "MBA Temps Plein",
+      "exec2": "MBA Temps Partiel",
+      "exec3": "DBA – Doctorat en Administration des Affaires",
+      "exec4": "Autres programmes exécutifs",
+      "allHead": "Tous les programmes",
+      "all1": "Voir tous les programmes",
+      "all2": "Programmes courts",
+      "all3": "Programmes d'échange",
+      "viewAll": "Voir tout"
+    }
+  },
+
   "home": {
     "heroTag": "Bienvenue à l'Université Globale",
     "heroH1Line1": "Construisez votre",
@@ -45,6 +79,7 @@
       "mib": { "title": "Master Commerce International", "sub": "Master", "duration": "2 ans", "code": "MIB" }
     }
   },
+  
   "about": {
     "tag": "À propos",
     "h1": "Former les leaders de demain",

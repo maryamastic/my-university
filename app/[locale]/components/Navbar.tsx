@@ -1,96 +1,11 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
-const megaData: Record<string, { cols: { head: string; links: { label: string; href: string }[] }[] }> = {
-  School: {
-    cols: [{ head: "The School", links: [
-      { label: "About Us", href: "/about" },
-      { label: "The New Campus", href: "/about" },
-      { label: "Accreditations & Labels", href: "/about" },
-      { label: "Our CSR Approach", href: "/about" },
-      { label: "Rankings", href: "/about" },
-      { label: "News", href: "/about" },
-      { label: "Partnerships & Networks", href: "/about" },
-    ]}],
-  },
-  Programs: {
-    cols: [
-      { head: "Bachelor's Degree", links: [
-        { label: "International Bachelor in Management", href: "/programs/bachelors" },
-        { label: "Bachelor in Digital Marketing", href: "/programs/bachelors" },
-        { label: "Bachelor in Tourism & Hospitality", href: "/programs/bachelors" },
-        { label: "Bachelor in Hotel Management", href: "/programs/bachelors" },
-      ]},
-      { head: "Master's / MSc", links: [
-        { label: "MBA – Master of Business Administration", href: "/programs/masters" },
-        { label: "MSc Supply Chain Management", href: "/programs/masters" },
-        { label: "MSc International Finance", href: "/programs/masters" },
-        { label: "MSc International Management", href: "/programs/masters" },
-        { label: "Master in International Business", href: "/programs/masters" },
-        { label: "MSc Tourism & Hospitality Management", href: "/programs/masters" },
-      ]},
-      { head: "Executive Education", links: [
-        { label: "MBA Full-Time", href: "/programs/masters" },
-        { label: "MBA Part-Time", href: "/programs/masters" },
-        { label: "DBA – Doctorate of Business Administration", href: "/programs/masters" },
-        { label: "Other Executive Programs", href: "/programs/masters" },
-      ]},
-      { head: "All Programs", links: [
-        { label: "Browse All Programs", href: "/programs" },
-        { label: "Short Programs", href: "/programs" },
-        { label: "Exchange Programs", href: "/programs" },
-      ]},
-    ],
-  },
-  Admissions: {
-    cols: [
-      { head: "Admissions by Program", links: [
-        { label: "Bachelor's Degree", href: "/contact" },
-        { label: "Master's / MSc", href: "/contact" },
-        { label: "MBA", href: "/contact" },
-        { label: "DBA", href: "/contact" },
-      ]},
-      { head: "Admission Methods", links: [
-        { label: "How to Apply", href: "/contact" },
-        { label: "Tuition Fees", href: "/contact" },
-        { label: "Scholarships & Funding", href: "/contact" },
-        { label: "Apply Online", href: "/contact" },
-      ]},
-    ],
-  },
-  International: {
-    cols: [{ head: "International", links: [
-      { label: "International Affairs", href: "/about" },
-      { label: "Grants & Financing", href: "/about" },
-      { label: "Partner Universities", href: "/about" },
-      { label: "International Students", href: "/about" },
-    ]}],
-  },
-  "Student Services": {
-    cols: [
-      { head: "Professionalization", links: [
-        { label: "Internships", href: "/about" },
-        { label: "Apprenticeships", href: "/about" },
-        { label: "Partner Companies", href: "/about" },
-        { label: "Career Services", href: "/about" },
-      ]},
-      { head: "Student Life", links: [
-        { label: "Student Associations", href: "/about" },
-        { label: "Student Housing", href: "/about" },
-        { label: "Financing Your Studies", href: "/about" },
-        { label: "Diversity & Inclusion", href: "/about" },
-      ]},
-    ],
-  },
-};
-
-const navItems = ["School", "Programs", "Admissions", "International", "Student Services"];
-
-/* ── LANGUAGE SWITCHER ── built into navbar */
+/* ── LANGUAGE SWITCHER ── */
 function LangSwitcher() {
   const locale = useLocale();
   const router = useRouter();
@@ -118,18 +33,11 @@ function LangSwitcher() {
 
       {open && (
         <>
-          <div onClick={() => setOpen(false)}
-            style={{ position: "fixed", inset: 0, zIndex: 998 }} />
+          <div onClick={() => setOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 998 }} />
           <div style={{
-            position: "absolute",
-            top: "calc(100% + 8px)",
-            right: 0,           /* aligns to the right edge of the button */
-            left: "auto",       /* never goes far right */
-            background: "#fff",
-            border: "1px solid #e0e0e0",
-            boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
-            minWidth: "130px",
-            zIndex: 999,
+            position: "absolute", top: "calc(100% + 8px)", right: 0, left: "auto",
+            background: "#fff", border: "1px solid #e0e0e0",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.15)", minWidth: "130px", zIndex: 999,
           }}>
             {[
               { code: "en", flag: "🇬🇧", name: "English" },
@@ -144,8 +52,7 @@ function LangSwitcher() {
                 cursor: "pointer",
                 fontFamily: "Montserrat, sans-serif", fontSize: "11px", fontWeight: 700,
                 color: l.code === locale ? "#003366" : "#444",
-                letterSpacing: "0.06em", textAlign: "left",
-                transition: "background 0.15s",
+                letterSpacing: "0.06em", textAlign: "left", transition: "background 0.15s",
               }}
               onMouseEnter={(e) => { if (l.code !== locale) e.currentTarget.style.background = "#f8f8f8"; }}
               onMouseLeave={(e) => { if (l.code !== locale) e.currentTarget.style.background = "#fff"; }}>
@@ -162,41 +69,94 @@ function LangSwitcher() {
 
 export default function Navbar() {
   const locale = useLocale();
+  const t = useTranslations("nav");
   const [active, setActive] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const open = (label: string) => {
+  const openMenu = (key: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setActive(label);
+    setActive(key);
   };
-  const close = () => { closeTimer.current = setTimeout(() => setActive(null), 100); };
+  const closeMenu = () => { closeTimer.current = setTimeout(() => setActive(null), 100); };
   const cancelClose = () => { if (closeTimer.current) clearTimeout(closeTimer.current); };
   useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
 
+  // Nav items use translation keys
+  const navItems = [
+    { key: "home",     label: t("home"),     href: "/",        hasMega: false },
+    { key: "about",    label: t("about"),    href: "/about",   hasMega: false },
+    { key: "programs", label: t("programs"), href: "/programs",hasMega: true  },
+    { key: "contact",  label: t("contact"),  href: "/contact", hasMega: false },
+  ];
+
+  // Mega menu built from translations
+  const megaData = {
+    programs: {
+      cols: [
+        {
+          head: t("mega.bachelorsHead"),
+          links: [
+            { label: t("mega.bachelor1"), href: "/programs/bachelors" },
+            { label: t("mega.bachelor2"), href: "/programs/bachelors" },
+            { label: t("mega.bachelor3"), href: "/programs/bachelors" },
+            { label: t("mega.bachelor4"), href: "/programs/bachelors" },
+          ],
+        },
+        {
+          head: t("mega.mastersHead"),
+          links: [
+            { label: t("mega.master1"), href: "/programs/masters" },
+            { label: t("mega.master2"), href: "/programs/masters" },
+            { label: t("mega.master3"), href: "/programs/masters" },
+            { label: t("mega.master4"), href: "/programs/masters" },
+            { label: t("mega.master5"), href: "/programs/masters" },
+            { label: t("mega.master6"), href: "/programs/masters" },
+          ],
+        },
+        {
+          head: t("mega.execHead"),
+          links: [
+            { label: t("mega.exec1"), href: "/programs/masters" },
+            { label: t("mega.exec2"), href: "/programs/masters" },
+            { label: t("mega.exec3"), href: "/programs/masters" },
+            { label: t("mega.exec4"), href: "/programs/masters" },
+          ],
+        },
+        {
+          head: t("mega.allHead"),
+          links: [
+            { label: t("mega.all1"), href: "/programs" },
+            { label: t("mega.all2"), href: "/programs" },
+            { label: t("mega.all3"), href: "/programs" },
+          ],
+          showBtn: true,
+        },
+      ],
+    },
+  } as Record<string, { cols: { head: string; links: { label: string; href: string }[]; showBtn?: boolean }[] }>;
+
   return (
-    /* Wrap both bars in a sticky container so they scroll together with no gap */
     <div style={{ position: "sticky", top: 0, zIndex: 200 }}>
 
       {/* ── TOP UTILITY BAR ── */}
       <div style={{ background: "#e84e0f", padding: "3px 0" }}>
         <div className="container" style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "16px" }}>
           <Link href={`/${locale}/contact`}
-            style={{ fontFamily: "Open Sans, sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.65)", textDecoration: "none" }}
+            style={{ fontFamily: "Open Sans, sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.85)", textDecoration: "none" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
-            Contact Us
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}>
+            {t("contactUs")}
           </Link>
-          <div style={{ width: "1px", height: "12px", background: "rgba(255,255,255,0.2)" }} />
+          <div style={{ width: "1px", height: "12px", background: "rgba(255,255,255,0.3)" }} />
           <Link href={`/${locale}/contact`}
-            style={{ fontFamily: "Open Sans, sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.65)", textDecoration: "none" }}
+            style={{ fontFamily: "Open Sans, sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.85)", textDecoration: "none" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
-            Open Day
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}>
+            {t("openDay")}
           </Link>
-          <div style={{ width: "1px", height: "12px", background: "rgba(255,255,255,0.2)" }} />
-          {/* Language switcher lives HERE inside the utility bar */}
+          <div style={{ width: "1px", height: "12px", background: "rgba(255,255,255,0.3)" }} />
           <LangSwitcher />
         </div>
       </div>
@@ -213,32 +173,39 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop nav links */}
+          {/* Desktop nav */}
           <div style={{ display: "flex", alignItems: "stretch" }} className="desktop-nav">
-            {navItems.map((label) => (
-              <div key={label} style={{ display: "flex", alignItems: "stretch" }}
-                onMouseEnter={() => open(label)} onMouseLeave={close}>
-                <button style={{
+            {navItems.map((item) => (
+              <div key={item.key}
+                style={{ display: "flex", alignItems: "stretch" }}
+                onMouseEnter={() => item.hasMega ? openMenu(item.key) : setActive(item.key)}
+                onMouseLeave={() => item.hasMega ? closeMenu() : setActive(null)}>
+                <Link href={`/${locale}${item.href}`} style={{
                   background: "none", border: "none", cursor: "pointer",
                   fontFamily: "Montserrat, sans-serif", fontSize: "12px", fontWeight: 700,
-                  color: active === label ? "#fff" : "rgba(255,255,255,0.85)",
+                  color: active === item.key ? "#fff" : "rgba(255,255,255,0.85)",
                   padding: "0 14px", height: "100%",
-                  display: "flex", alignItems: "center", gap: "5px",
-                  borderBottom: active === label ? "3px solid #e84e0f" : "3px solid transparent",
+                  display: "flex", alignItems: "center",
+                  gap: item.hasMega ? "5px" : "0",
+                  borderBottom: active === item.key ? "3px solid #e84e0f" : "3px solid transparent",
                   transition: "color 0.2s, border-color 0.2s",
-                  whiteSpace: "nowrap",
+                  whiteSpace: "nowrap", textDecoration: "none",
                 }}>
-                  {label}
-                  <motion.span animate={{ rotate: active === label ? 180 : 0 }} transition={{ duration: 0.2 }}
-                    style={{ display: "inline-block", fontSize: "9px", opacity: 0.6 }}>▾</motion.span>
-                </button>
+                  {item.label}
+                  {item.hasMega && (
+                    <motion.span animate={{ rotate: active === item.key ? 180 : 0 }} transition={{ duration: 0.2 }}
+                      style={{ display: "inline-block", fontSize: "9px", opacity: 0.6 }}>▾</motion.span>
+                  )}
+                </Link>
               </div>
             ))}
           </div>
 
-          {/* Right side buttons */}
+          {/* Apply button */}
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }} className="desktop-nav">
-            <Link href={`/${locale}/contact`} className="btn btn-orange" style={{ fontSize: "11px" }}>Apply Online</Link>
+            <Link href={`/${locale}/contact`} className="btn btn-orange" style={{ fontSize: "11px" }}>
+              {t("applyOnline")}
+            </Link>
           </div>
 
           {/* Hamburger */}
@@ -254,15 +221,14 @@ export default function Navbar() {
             <motion.div key={active}
               initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.16 }}
-              onMouseEnter={cancelClose} onMouseLeave={close}
+              onMouseEnter={cancelClose} onMouseLeave={closeMenu}
               style={{
                 position: "absolute", top: "100%", left: 0, right: 0,
                 background: "#fff", borderTop: "3px solid #e84e0f",
                 boxShadow: "0 12px 40px rgba(0,0,0,0.15)", zIndex: 500,
               }}>
               <div className="container" style={{
-                padding: "32px 2rem",
-                display: "grid",
+                padding: "32px 2rem", display: "grid",
                 gridTemplateColumns: `repeat(${megaData[active].cols.length}, 1fr)`,
                 gap: "24px",
               }}>
@@ -274,17 +240,15 @@ export default function Navbar() {
                       paddingBottom: "8px", borderBottom: "2px solid #e84e0f", marginBottom: "10px",
                     }}>{col.head}</p>
                     {col.links.map((link) => (
-                      <MegaLink key={link.label}
-                        href={`/${locale}${link.href}`}
-                        label={link.label}
-                        onClose={() => setActive(null)} />
+                      <MegaLink key={link.label} href={`/${locale}${link.href}`}
+                        label={link.label} onClose={() => setActive(null)} />
                     ))}
-                    {col.head === "All Programs" && (
+                    {col.showBtn && (
                       <div style={{ marginTop: "16px" }}>
                         <Link href={`/${locale}/programs`} className="btn btn-orange"
                           style={{ fontSize: "10px", padding: "9px 16px" }}
                           onClick={() => setActive(null)}>
-                          View All
+                          {t("mega.viewAll")}
                         </Link>
                       </div>
                     )}
@@ -302,36 +266,45 @@ export default function Navbar() {
               exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.28 }}
               style={{ background: "#080f1c", overflow: "hidden", position: "absolute", top: "100%", left: 0, right: 0, zIndex: 400, maxHeight: "80vh", overflowY: "auto" }}>
               <div style={{ padding: "1rem 2rem 2rem" }}>
-                {navItems.map((label) => (
-                  <div key={label} style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                    <button onClick={() => setMobileExpanded(mobileExpanded === label ? null : label)}
-                      style={{ width: "100%", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff" }}>
-                      {label}
-                      <span style={{ fontSize: "9px", opacity: 0.6 }}>{mobileExpanded === label ? "▲" : "▾"}</span>
-                    </button>
-                    {mobileExpanded === label && megaData[label] && (
-                      <div style={{ paddingLeft: "16px", paddingBottom: "12px" }}>
-                        {megaData[label].cols.map((col) => (
-                          <div key={col.head} style={{ marginBottom: "12px" }}>
-                            <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "9px", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "6px" }}>{col.head}</p>
-                            {col.links.map((link) => (
-                              <Link key={link.label} href={`/${locale}${link.href}`}
-                                onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
-                                style={{ display: "block", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "4px 0" }}>
-                                {link.label}
-                              </Link>
+                {navItems.map((item) => (
+                  <div key={item.key} style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                    {item.hasMega ? (
+                      <>
+                        <button onClick={() => setMobileExpanded(mobileExpanded === item.key ? null : item.key)}
+                          style={{ width: "100%", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff" }}>
+                          {item.label}
+                          <span style={{ fontSize: "9px", opacity: 0.6 }}>{mobileExpanded === item.key ? "▲" : "▾"}</span>
+                        </button>
+                        {mobileExpanded === item.key && megaData[item.key] && (
+                          <div style={{ paddingLeft: "16px", paddingBottom: "12px" }}>
+                            {megaData[item.key].cols.map((col) => (
+                              <div key={col.head} style={{ marginBottom: "12px" }}>
+                                <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "9px", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "6px" }}>{col.head}</p>
+                                {col.links.map((link) => (
+                                  <Link key={link.label} href={`/${locale}${link.href}`}
+                                    onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
+                                    style={{ display: "block", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "4px 0" }}>
+                                    {link.label}
+                                  </Link>
+                                ))}
+                              </div>
                             ))}
                           </div>
-                        ))}
-                      </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link href={`/${locale}${item.href}`} onClick={() => setMobileOpen(false)}
+                        style={{ display: "block", padding: "12px 0", fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff", textDecoration: "none" }}>
+                        {item.label}
+                      </Link>
                     )}
                   </div>
                 ))}
-                <div style={{ marginTop: "20px", display: "flex", gap: "12px", flexDirection: "column" }}>
+                <div style={{ marginTop: "20px" }}>
                   <Link href={`/${locale}/contact`} className="btn btn-orange"
-                    style={{ textAlign: "center", justifyContent: "center" }}
+                    style={{ width: "100%", justifyContent: "center" }}
                     onClick={() => setMobileOpen(false)}>
-                    Apply Online
+                    {t("applyOnline")}
                   </Link>
                 </div>
               </div>

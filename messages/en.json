@@ -1,4 +1,37 @@
 {
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "programs": "Programs",
+    "contact": "Contact",
+    "contactUs": "Contact Us",
+    "openDay": "Open Day",
+    "applyOnline": "Apply Online",
+    "mega": {
+      "bachelorsHead": "Bachelor's Degree",
+      "bachelor1": "International Bachelor in Management",
+      "bachelor2": "Bachelor in Digital Marketing",
+      "bachelor3": "Bachelor in Tourism & Hospitality",
+      "bachelor4": "Bachelor in Hotel Management",
+      "mastersHead": "Master's / MSc",
+      "master1": "MBA – Master of Business Administration",
+      "master2": "MSc Supply Chain Management",
+      "master3": "MSc International Finance",
+      "master4": "MSc International Management",
+      "master5": "Master in International Business",
+      "master6": "MSc Tourism & Hospitality Management",
+      "execHead": "Executive Education",
+      "exec1": "MBA Full-Time",
+      "exec2": "MBA Part-Time",
+      "exec3": "DBA – Doctorate of Business Administration",
+      "exec4": "Other Executive Programs",
+      "allHead": "All Programs",
+      "all1": "Browse All Programs",
+      "all2": "Short Programs",
+      "all3": "Exchange Programs",
+      "viewAll": "View All"
+    }
+  },
   "home": {
     "heroTag": "Welcome to Global University",
     "heroH1Line1": "Shape Your",
@@ -45,6 +78,7 @@
       "mib": { "title": "Master in International Business", "sub": "Postgraduate", "duration": "2 Years", "code": "MIB" }
     }
   },
+  
   "about": {
     "tag": "About Us",
     "h1": "Shaping the Leaders of Tomorrow",
