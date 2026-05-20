@@ -197,12 +197,27 @@
   "emailAdmission": "admission@globaluniversity.edu",
   "phoneValue": "+44 (0) 20 7123 4567"
 },
-  "footer": {
-    "programs": "Programs", "school": "School", "admissions": "Admissions",
-    "bachelors": "Bachelor's Programs", "masters": "Master's / MSc", "mba": "MBA", "allPrograms": "All Programs",
-    "aboutUs": "About Us", "accreditations": "Accreditations", "rankings": "Rankings", "news": "News",
-    "howToApply": "How to Apply", "tuition": "Tuition Fees", "scholarships": "Scholarships", "contactUs": "Contact Us",
-    "applyNow": "Apply Now", "legal": "Legal Notice", "privacy": "Privacy Policy", "accessibility": "Accessibility",
-    "copyright": "Global University. All rights reserved."
-  }
+"footer": {
+  "tagline": "Build bridges,\nshape a better world",
+  "programs": "Programs",
+  "bachelors": "Bachelor's Programs",
+  "masters": "Master's / MSc",
+  "mba": "MBA",
+  "allPrograms": "All Programs",
+  "school": "School",
+  "aboutUs": "About Us",
+  "accreditations": "Accreditations",
+  "rankings": "Rankings",
+  "news": "News",
+  "admissions": "Admissions",
+  "howToApply": "How to Apply",
+  "tuition": "Tuition Fees",
+  "scholarships": "Scholarships",
+  "contactUs": "Contact Us",
+  "applyNow": "Apply Now",
+  "legal": "Legal Notice",
+  "privacy": "Privacy Policy",
+  "accessibility": "Accessibility",
+  "copyright": "Global University. All rights reserved."
+}
 }

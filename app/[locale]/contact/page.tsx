@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+
 export default function ContactPage() {
   const t = useTranslations("contact");
   const locale = useLocale();
@@ -66,44 +67,70 @@ export default function ContactPage() {
 
       {/* ── HERO ── */}
       <section style={{
-        background: "#5a6070",
-        minHeight: "300px",
+        minHeight: "60vh",
+        position: "relative",
         display: "flex",
         alignItems: "center",
-        position: "relative",
         overflow: "hidden",
-        padding: "8rem 0 4rem",
+        padding: "8rem 0 5rem",
       }}>
-        <div style={{ position: "absolute", right: 0, top: 0, width: "40%", height: "100%", background: "rgba(0,0,0,0.12)", clipPath: "polygon(12% 0, 100% 0, 100% 100%, 0% 100%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "5px", background: "#e84e0f" }} />
+        {/* Same bg image */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/images/bg.jpg')", backgroundSize: "cover", backgroundPosition: "center", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, zIndex: 1 }} />
+        {/* Same orange bottom line */}
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "4px", background: "#e84e0f", zIndex: 3 }} />
 
-        <div className="container" style={{ position: "relative", zIndex: 1 }}>
+        <div className="container" style={{ position: "relative", zIndex: 2 }}>
           {/* Breadcrumb */}
-          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "1.25rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "1.5rem" }}>
             <Link href={`/${locale}`}
-              style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.6)", textDecoration: "none" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}>
+              style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.82rem", color: "#0d1b2e", textDecoration: "none", opacity: 0.6 }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.6")}>
               Home
             </Link>
-            <span style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.75rem" }}>›</span>
-            <span style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.82rem", color: "rgba(255,255,255,0.85)" }}>{t("tag")}</span>
+            <span style={{ color: "#0d1b2e", fontSize: "0.75rem", opacity: 0.4 }}>›</span>
+            <span style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.82rem", color: "#0d1b2e" }}>{t("tag")}</span>
           </div>
 
-          {/* Orange label */}
-          <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "10px", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "16px" }}>
+          {/* Tag — plain orange text, DM Sans, same as About/Homepage */}
+          <p style={{
+            fontFamily: "DM Sans, sans-serif",
+            fontSize: "0.72rem",
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            color: "#e84e0f",
+            marginBottom: "1.5rem",
+          }}>
             {t("tag")}
           </p>
 
-          <h1 style={{ fontFamily: "Montserrat, sans-serif", fontSize: "clamp(2.2rem, 5vw, 4rem)", fontWeight: 800, color: "#fff", lineHeight: 1.1, maxWidth: "600px", marginBottom: "1rem" }}>
+          {/* H1 — Cormorant, weight 300, dark navy, same as About/Homepage */}
+          <h1 style={{
+            fontFamily: "Cormorant Garamond, serif",
+            fontSize: "clamp(3rem, 8vw, 6rem)",
+            fontWeight: 300,
+            lineHeight: 1.05,
+            color: "#0d1b2e",
+            marginBottom: "2rem",
+            maxWidth: "750px",
+          }}>
             {t("h1")}
           </h1>
-          <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "15px", color: "rgba(255,255,255,0.65)", maxWidth: "500px", lineHeight: 1.8 }}>
+
+          {/* P — DM Sans, dark navy, same as About/Homepage */}
+          <p style={{
+            fontFamily: "DM Sans, sans-serif",
+            fontWeight: 300,
+            fontSize: "1.05rem",
+            color: "#0d1b2e",
+            maxWidth: "460px",
+            lineHeight: 1.85,
+          }}>
             {t("heroP")}
           </p>
         </div>
       </section>
-
       {/* ── MAIN CONTENT ── */}
       <section style={{ background: "#fff", padding: "5rem 0 6rem" }}>
         <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "5rem", alignItems: "start" }}>

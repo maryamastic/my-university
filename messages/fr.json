@@ -198,12 +198,27 @@
   "emailAdmission": "admission@globaluniversity.edu",
   "phoneValue": "+44 (0) 20 7123 4567"
 },
-  "footer": {
-    "programs": "Programmes", "school": "L'École", "admissions": "Admissions",
-    "bachelors": "Programmes Bachelor", "masters": "Master / MSc", "mba": "MBA", "allPrograms": "Tous les programmes",
-    "aboutUs": "À propos", "accreditations": "Accréditations", "rankings": "Classements", "news": "Actualités",
-    "howToApply": "Comment candidater", "tuition": "Frais de scolarité", "scholarships": "Bourses", "contactUs": "Nous contacter",
-    "applyNow": "Candidater", "legal": "Mentions légales", "privacy": "Politique de confidentialité", "accessibility": "Accessibilité",
-    "copyright": "Université Globale. Tous droits réservés."
-  }
+"footer": {
+  "tagline": "Construire des ponts,\nfaçonner un monde meilleur",
+  "programs": "Programmes",
+  "bachelors": "Programmes Bachelor",
+  "masters": "Master / MSc",
+  "mba": "MBA",
+  "allPrograms": "Tous les programmes",
+  "school": "L'École",
+  "aboutUs": "À propos",
+  "accreditations": "Accréditations",
+  "rankings": "Classements",
+  "news": "Actualités",
+  "admissions": "Admissions",
+  "howToApply": "Comment candidater",
+  "tuition": "Frais de scolarité",
+  "scholarships": "Bourses",
+  "contactUs": "Nous contacter",
+  "applyNow": "Candidater",
+  "legal": "Mentions légales",
+  "privacy": "Politique de confidentialité",
+  "accessibility": "Accessibilité",
+  "copyright": "Université Globale. Tous droits réservés."
+}
 }

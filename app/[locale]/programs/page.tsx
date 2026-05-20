@@ -29,20 +29,60 @@ export default function ProgramsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section style={{ background: "#0d1b2e", padding: "10rem 0 6rem", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: 0, right: 0, width: "50%", height: "100%", background: "linear-gradient(135deg, transparent, rgba(201,168,76,0.06))", pointerEvents: "none" }} />
-        <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <p style={{ fontSize: "0.72rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#c9a84c", marginBottom: "1rem" }}>{t("heroLabel")}</p>
-          <h1 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.8rem, 6vw, 5rem)", fontWeight: 300, color: "#f8f4ef", maxWidth: "650px", lineHeight: 1.1, marginBottom: "1.5rem" }}>
-            {t("heroH1")} <em style={{ color: "#c9a84c" }}>{t("heroH1Highlight")}</em>
+   {/* Hero — same style as About/Homepage/Contact */}
+      <section style={{
+        minHeight: "60vh",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        overflow: "hidden",
+        padding: "8rem 0 5rem",
+      }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/images/bg.jpg')", backgroundSize: "cover", backgroundPosition: "center", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, zIndex: 1 }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "4px", background: "#e84e0f", zIndex: 3 }} />
+
+        <div className="container" style={{ position: "relative", zIndex: 2 }}>
+          {/* Tag */}
+          <p style={{
+            fontFamily: "DM Sans, sans-serif",
+            fontSize: "0.72rem",
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            color: "#e84e0f",
+            marginBottom: "1.5rem",
+          }}>
+            {t("heroLabel")}
+          </p>
+
+          {/* H1 */}
+          <h1 style={{
+            fontFamily: "Cormorant Garamond, serif",
+            fontSize: "clamp(3rem, 8vw, 6rem)",
+            fontWeight: 300,
+            lineHeight: 1.05,
+            color: "#0d1b2e",
+            marginBottom: "2rem",
+            maxWidth: "750px",
+          }}>
+            {t("heroH1")} <em style={{ color: "#e84e0f" }}>{t("heroH1Highlight")}</em>
           </h1>
-          <div style={{ width: "60px", height: "2px", background: "#c9a84c", marginBottom: "1.5rem" }} />
-          <p style={{ color: "rgba(248,244,239,0.55)", maxWidth: "500px", fontSize: "1rem", lineHeight: 1.85 }}>{t("heroP")}</p>
+
+          {/* P */}
+          <p style={{
+            fontFamily: "DM Sans, sans-serif",
+            fontWeight: 300,
+            fontSize: "1.05rem",
+            color: "#0d1b2e",
+            maxWidth: "500px",
+            lineHeight: 1.85,
+          }}>
+            {t("heroP")}
+          </p>
         </div>
       </section>
-
       {/* Quick nav */}
-      <section style={{ background: "#c9a84c", padding: "1.5rem 0" }}>
+      <section style={{ background: "#e84e0f", padding: "1.5rem 0" }}>
         <div className="container" style={{ display: "flex", gap: "2rem", justifyContent: "center", flexWrap: "wrap" }}>
           <Link href={`/${locale}/programs/bachelors`} style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.78rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#0d1b2e", fontWeight: 500, textDecoration: "none" }}>
             → {t("navBachelors")}
@@ -59,7 +99,7 @@ export default function ProgramsPage() {
           <FadeUp>
             <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "3rem", flexWrap: "wrap", gap: "1rem" }}>
               <div>
-                <p style={{ fontSize: "0.72rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#c9a84c", marginBottom: "0.75rem" }}>{t("undergraduate")}</p>
+                <p style={{ fontSize: "0.72rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.75rem" }}>{t("undergraduate")}</p>
                 <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 300, color: "#1a1a2e" }}>{t("bachelorsH2")}</h2>
               </div>
               <Link href={`/${locale}/programs/bachelors`} style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#1a1a2e", border: "1px solid #1a1a2e", padding: "0.6rem 1.2rem", textDecoration: "none" }}>{t("viewAll")}</Link>
@@ -70,12 +110,12 @@ export default function ProgramsPage() {
               <FadeUp key={p.code} delay={i * 0.08}>
                 <div style={{ background: "#fff", border: "1px solid rgba(201,168,76,0.2)", padding: "2.5rem 2rem" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.2rem" }}>
-                    <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 700, color: "rgba(201,168,76,0.3)", lineHeight: 1 }}>{p.code}</span>
+                    <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 700, color: "rgba(232, 78, 15, 0.15)", lineHeight: 1 }}>{p.code}</span>
                     <span style={{ fontSize: "0.7rem", color: "#8a9090", border: "1px solid #ddd", padding: "0.2rem 0.7rem", letterSpacing: "0.08em" }}>{p.duration}</span>
                   </div>
                   <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.2rem", fontWeight: 600, color: "#1a1a2e", marginBottom: "0.75rem", lineHeight: 1.35 }}>{p.title}</h3>
                   <p style={{ fontSize: "0.85rem", color: "#5a6070", lineHeight: 1.85, marginBottom: "1.5rem" }}>{p.desc}</p>
-                  <Link href={`/${locale}/contact`} style={{ fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#c9a84c", textDecoration: "none", borderBottom: "1px solid rgba(201,168,76,0.4)", paddingBottom: "2px" }}>
+                  <Link href={`/${locale}/contact`} style={{ fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#e84e0f", textDecoration: "none", borderBottom: "1px solid rgba(201,168,76,0.4)", paddingBottom: "2px" }}>
                     {t("enquire")} →
                   </Link>
                 </div>
@@ -91,7 +131,7 @@ export default function ProgramsPage() {
           <FadeUp>
             <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "3rem", flexWrap: "wrap", gap: "1rem" }}>
               <div>
-                <p style={{ fontSize: "0.72rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#c9a84c", marginBottom: "0.75rem" }}>{t("postgraduate")}</p>
+                <p style={{ fontSize: "0.72rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.75rem" }}>{t("postgraduate")}</p>
                 <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 300, color: "#1a1a2e" }}>{t("mastersH2")}</h2>
               </div>
               <Link href={`/${locale}/programs/masters`} style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#1a1a2e", border: "1px solid #1a1a2e", padding: "0.6rem 1.2rem", textDecoration: "none" }}>{t("viewAll")}</Link>
@@ -102,12 +142,12 @@ export default function ProgramsPage() {
               <FadeUp key={p.code} delay={i * 0.08}>
                 <div style={{ background: "#f8f4ef", border: "1px solid rgba(201,168,76,0.2)", padding: "2.5rem 2rem" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.2rem" }}>
-                    <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 700, color: "rgba(201,168,76,0.3)", lineHeight: 1 }}>{p.code}</span>
+                    <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 700, color: "rgba(232, 78, 15, 0.15)", lineHeight: 1 }}>{p.code}</span>
                     <span style={{ fontSize: "0.7rem", color: "#8a9090", border: "1px solid #ddd", padding: "0.2rem 0.7rem", letterSpacing: "0.08em" }}>{p.duration}</span>
                   </div>
                   <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.2rem", fontWeight: 600, color: "#1a1a2e", marginBottom: "0.75rem", lineHeight: 1.35 }}>{p.title}</h3>
                   <p style={{ fontSize: "0.85rem", color: "#5a6070", lineHeight: 1.85, marginBottom: "1.5rem" }}>{p.desc}</p>
-                  <Link href={`/${locale}/contact`} style={{ fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#c9a84c", textDecoration: "none", borderBottom: "1px solid rgba(201,168,76,0.4)", paddingBottom: "2px" }}>
+                  <Link href={`/${locale}/contact`} style={{ fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "#e84e0f", textDecoration: "none", borderBottom: "1px solid rgba(201,168,76,0.4)", paddingBottom: "2px" }}>
                     {t("enquire")} →
                   </Link>
                 </div>

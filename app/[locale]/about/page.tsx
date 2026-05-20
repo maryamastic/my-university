@@ -2,25 +2,70 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FadeUp from "../components/FadeUp";
 import Link from "next/link";
-
+import { useTranslations,useLocale  } from "next-intl";
 export default function AboutPage() {
+  const t = useTranslations("about"); 
+  const locale = useLocale();
+
   return (
     <>
       <Navbar />
 
       {/* Hero */}
-      <section style={{ background: "#0f2041", padding: "8rem 0 5rem", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "4px", background: "#e84e0f" }} />
-        <div className="container">
-          <span style={{ display: "inline-block", background: "#e84e0f", color: "#fff", fontFamily: "Inter, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", padding: "0.35rem 0.9rem", marginBottom: "1.5rem" }}>About Us</span>
-          <h1 style={{ fontFamily: "Playfair Display, serif", fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900, color: "#fff", maxWidth: "700px", lineHeight: 1.1, marginBottom: "1.5rem" }}>
-            Shaping the Leaders of Tomorrow
-          </h1>
-          <p style={{ fontFamily: "Inter, sans-serif", fontSize: "1.05rem", color: "rgba(255,255,255,0.65)", maxWidth: "520px", lineHeight: 1.8 }}>
-            Founded on the principles of excellence and global citizenship, Global University has been a beacon of higher education for over five decades.
-          </p>
-        </div>
-      </section>
+
+<section style={{
+  minHeight: "60vh",
+  position: "relative",
+  display: "flex",
+  alignItems: "center",
+  overflow: "hidden",
+  padding: "8rem 0 5rem",
+}}>
+  {/* Same bg image as homepage */}
+  <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/images/bg.jpg')", backgroundSize: "cover", backgroundPosition: "center", zIndex: 0 }} />
+  <div style={{ position: "absolute", inset: 0, zIndex: 1 }} />
+  {/* Same orange bottom line */}
+  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "4px", background: "#e84e0f", zIndex: 3 }} />
+
+  <div className="container" style={{ position: "relative", zIndex: 2 }}>
+    {/* Tag — same style as homepage: plain orange text, DM Sans */}
+    <p style={{
+      fontFamily: "DM Sans, sans-serif",
+      fontSize: "0.72rem",
+      letterSpacing: "0.3em",
+      textTransform: "uppercase",
+      color: "#e84e0f",
+      marginBottom: "1.5rem",
+    }}>
+      {t("tag")}
+    </p>
+
+    {/* H1 — same as homepage: Cormorant, weight 300, dark navy */}
+    <h1 style={{
+      fontFamily: "Cormorant Garamond, serif",
+      fontSize: "clamp(3rem, 8vw, 6rem)",
+      fontWeight: 300,
+      lineHeight: 1.05,
+      color: "#0d1b2e",
+      marginBottom: "2rem",
+      maxWidth: "750px",
+    }}>
+      {t("h1")}
+    </h1>
+
+    {/* P — same as homepage: DM Sans, dark navy */}
+    <p style={{
+      fontFamily: "DM Sans, sans-serif",
+      fontWeight: 300,
+      fontSize: "1.05rem",
+      color: "#0d1b2e",
+      maxWidth: "460px",
+      lineHeight: 1.85,
+    }}>
+      {t("heroP")}
+    </p>
+  </div>
+</section>
 
       {/* Mission */}
       <section className="section" style={{ background: "#fff" }}>

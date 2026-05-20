@@ -21,15 +21,53 @@ export default function BachelorsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section style={{ background: "#0d1b2e", padding: "10rem 0 6rem", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: 0, right: 0, width: "50%", height: "100%", background: "linear-gradient(135deg, transparent, rgba(201,168,76,0.06))", pointerEvents: "none" }} />
-        <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <p style={{ fontSize: "0.72rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#c9a84c", marginBottom: "1rem" }}>{t("undergraduate")}</p>
-          <h1 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.8rem, 6vw, 5rem)", fontWeight: 300, color: "#f8f4ef", maxWidth: "650px", lineHeight: 1.1, marginBottom: "1.5rem" }}>
-            {t("bachelorsH1")} <em style={{ color: "#c9a84c" }}>{t("bachelorsH1Highlight")}</em>
+  {/* Hero — Bachelors */}
+      <section style={{
+        minHeight: "60vh",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        overflow: "hidden",
+        padding: "8rem 0 5rem",
+      }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/images/bg.jpg')", backgroundSize: "cover", backgroundPosition: "center", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, zIndex: 1 }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "4px", background: "#e84e0f", zIndex: 3 }} />
+
+        <div className="container" style={{ position: "relative", zIndex: 2 }}>
+          <p style={{
+            fontFamily: "DM Sans, sans-serif",
+            fontSize: "0.72rem",
+            letterSpacing: "0.3em",
+            textTransform: "uppercase",
+            color: "#e84e0f",
+            marginBottom: "1.5rem",
+          }}>
+            {t("undergraduate")}
+          </p>
+
+          <h1 style={{
+            fontFamily: "Cormorant Garamond, serif",
+            fontSize: "clamp(3rem, 8vw, 6rem)",
+            fontWeight: 300,
+            lineHeight: 1.05,
+            color: "#0d1b2e",
+            marginBottom: "2rem",
+            maxWidth: "750px",
+          }}>
+            {t("bachelorsH1")} <em style={{ color: "#e84e0f" }}>{t("bachelorsH1Highlight")}</em>
           </h1>
-          <div style={{ width: "60px", height: "2px", background: "#c9a84c", marginBottom: "1.5rem" }} />
-          <p style={{ color: "rgba(248,244,239,0.55)", maxWidth: "480px", fontSize: "1rem", lineHeight: 1.85 }}>{t("bachelorsHeroP")}</p>
+
+          <p style={{
+            fontFamily: "DM Sans, sans-serif",
+            fontWeight: 300,
+            fontSize: "1.05rem",
+            color: "#0d1b2e",
+            maxWidth: "480px",
+            lineHeight: 1.85,
+          }}>
+            {t("bachelorsHeroP")}
+          </p>
         </div>
       </section>
 
@@ -42,8 +80,9 @@ export default function BachelorsPage() {
                 <div style={{ background: "#fff", border: "1px solid rgba(201,168,76,0.2)", padding: "3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "start" }}>
                   <div>
                     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.2rem" }}>
-                      <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "3rem", fontWeight: 700, color: "rgba(201,168,76,0.25)", lineHeight: 1 }}>{p.code}</span>
-                      <span style={{ fontSize: "0.7rem", color: "#c9a84c", border: "1px solid rgba(201,168,76,0.4)", padding: "0.25rem 0.8rem", letterSpacing: "0.1em" }}>{t("undergraduate")}</span>
+                      <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "3rem", fontWeight: 700, color: "rgba(232, 78, 15, 0.15)", lineHeight: 1 }}>{p.code}</span>
+                      
+                      <span style={{ fontSize: "0.7rem", color: "#e84e0f", border: "1px solid rgba(201,168,76,0.4)", padding: "0.25rem 0.8rem", letterSpacing: "0.1em" }}>{t("undergraduate")}</span>
                     </div>
                     <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.6rem", fontWeight: 600, color: "#1a1a2e", marginBottom: "1rem", lineHeight: 1.3 }}>{p.title}</h2>
                     <p style={{ fontSize: "0.9rem", color: "#5a6070", lineHeight: 1.85, marginBottom: "1.5rem" }}>{p.desc}</p>
@@ -60,11 +99,11 @@ export default function BachelorsPage() {
                     <Link href={`/${locale}/contact`} className="btn btn-orange" style={{ fontSize: "0.75rem" }}>{t("applyNow")}</Link>
                   </div>
                   <div>
-                    <p style={{ fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#c9a84c", marginBottom: "1.2rem" }}>{t("keyModules")}</p>
+                    <p style={{ fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "1.2rem" }}>{t("keyModules")}</p>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
                       {p.modules.map((mod) => (
                         <div key={mod} style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
-                          <span style={{ width: "5px", height: "5px", background: "#c9a84c", borderRadius: "50%", flexShrink: 0 }} />
+                          <span style={{ width: "5px", height: "5px", background: "#e84e0f", borderRadius: "50%", flexShrink: 0 }} />
                           <span style={{ fontSize: "0.83rem", color: "#5a6070" }}>{mod}</span>
                         </div>
                       ))}
