@@ -180,7 +180,7 @@ export default function ContactPage() {
                   {t("phoneLabel")}
                 </p>
                 <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)" }}>
-                  +33 (0) 20 7123 4567
+                  +33 (0) 745932244
                 </p>
               </div>
 
