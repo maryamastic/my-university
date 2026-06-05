@@ -16,14 +16,8 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(form),
-  });
-
-  if (res.ok) setStatus("sent");
-  else setStatus("idle"); // optionally show an error
+    await new Promise((r) => setTimeout(r, 1400));
+    setStatus("sent");
   };
 
   const inputStyle: React.CSSProperties = {
