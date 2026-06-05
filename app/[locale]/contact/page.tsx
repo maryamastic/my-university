@@ -16,8 +16,14 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 1400));
-    setStatus("sent");
+    const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(form),
+  });
+
+  if (res.ok) setStatus("sent");
+  else setStatus("idle"); // optionally show an error
   };
 
   const inputStyle: React.CSSProperties = {
@@ -153,11 +159,11 @@ export default function ContactPage() {
                 <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.4rem" }}>
                   {t("admissionsLabel")}
                 </p>
-                <a href="mailto:admissions@globaluniversity.edu"
+                <a href="mailto:info@modesse.fr"
                   style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)", textDecoration: "none" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(0, 0, 0, 0.75)")}>
-                  admissions@globaluniversity.edu
+                  info@modesse.fr
                 </a>
               </div>
 
@@ -166,11 +172,11 @@ export default function ContactPage() {
                 <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.4rem" }}>
                   {t("generalLabel")}
                 </p>
-                <a href="mailto:info@globaluniversity.edu"
-                  style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(255,255,255,0.75)", textDecoration: "none" }}
+                <a href="mailto:info@modesse.fr"
+                  style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)", textDecoration: "none" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(0, 0, 0, 0.75)")}>
-                  info@globaluniversity.edu
+                 info@modesse.fr
                 </a>
               </div>
 
@@ -190,7 +196,7 @@ export default function ContactPage() {
                   {t("addressLabel")}
                 </p>
                 <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)", lineHeight: 1.8 }}>
-                  123 University Avenue<br />London, EC1A 1BB<br />United Kingdom
+                  Paris, France
                 </p>
               </div>
 

@@ -168,8 +168,19 @@ export default function Navbar() {
           {/* Logo */}
           <Link href={`/${locale}`} style={{ textDecoration: "none", display: "flex", alignItems: "center", paddingRight: "24px" }}>
             <div>
-              <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "20px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Global</div>
-              <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "20px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05 }}>University</div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+  {/* Eiffel Tower  icon */}
+<img 
+  src="https://img.icons8.com/ios/50/e84e0f/eiffel-tower.png" 
+  width="36" 
+  height="36" 
+  alt="Eiffel Tower"
+/>  {/* School name */}
+  <div>
+    <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Modesse</div>
+    <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05 }}>Business School</div>
+  </div>
+</div>
             </div>
           </Link>
 

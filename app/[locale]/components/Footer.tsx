@@ -33,17 +33,19 @@ export default function Footer() {
 
         {/* Brand */}
         <div>
-          <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "22px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Global</div>
-          <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "22px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05, marginBottom: "12px" }}>University</div>
+          <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "22px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Modesse</div>
+          <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "22px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05, marginBottom: "12px" }}>Business School</div>
           <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, fontStyle: "italic", color: "rgba(255,255,255,0.82)", lineHeight: 1.6, marginBottom: "14px", whiteSpace: "pre-line" }}>
             {t("tagline")}
           </p>
-          <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.45)", lineHeight: 1.9 }}>
+          {/*
+            <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "12px", color: "rgba(255,255,255,0.45)", lineHeight: 1.9 }}>
             123 University Avenue<br />London, EC1A 1BB<br />United Kingdom<br />+44 (0) 20 7123 4567
           </p>
-          <div style={{ display: "flex", gap: "8px", marginTop: "16px" }}>
+          */}
+          {/* <div style={{ display: "flex", gap: "8px", marginTop: "16px" }}>
             {["Li", "Fb", "Ig", "Yt"].map((s) => <SI key={s} label={s} />)}
-          </div>
+          </div>  */}
         </div>
 
         {/* Programs */}
