@@ -33,7 +33,7 @@
     }
   },
   "home": {
-    "heroTag": "Welcome to Global University",
+    "heroTag": "Welcome to Modesse Business School",
     "heroH1Line1": "Shape Your",
     "heroH1Highlight": "Future",
     "heroH1Line2": "at a World-Class Institution",
@@ -48,7 +48,7 @@
     "aboutLabel": "About Us",
     "aboutH2": "A Legacy of Academic",
     "aboutH2Highlight": "Excellence",
-    "aboutP1": "Global University has been shaping tomorrow's leaders for decades. Our diverse international community fosters intellectual curiosity, cultural understanding, and professional excellence.",
+    "aboutP1": "Modess Business School has been shaping tomorrow's leaders for decades. Our diverse international community fosters intellectual curiosity, cultural understanding, and professional excellence.",
     "aboutP2": "With world-renowned faculty, cutting-edge research facilities, and an unmatched global network, we equip students with everything they need to thrive.",
     "discoverMore": "Learn More",
     "quote": "\u201cEducation is not the filling of a pail, but the lighting of a fire.\u201d",
@@ -218,6 +218,6 @@
   "legal": "Legal Notice",
   "privacy": "Privacy Policy",
   "accessibility": "Accessibility",
-  "copyright": "Global University. All rights reserved."
+  "copyright": "Modesse Business School. All rights reserved."
 }
 }

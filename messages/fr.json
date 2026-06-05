@@ -34,7 +34,7 @@
   },
 
   "home": {
-    "heroTag": "Bienvenue à l'Université Globale",
+    "heroTag": "Bienvenue à Modesse Business School",
     "heroH1Line1": "Construisez votre",
     "heroH1Highlight": "Avenir",
     "heroH1Line2": "dans une institution de rang mondial",
@@ -49,7 +49,7 @@
     "aboutLabel": "À propos",
     "aboutH2": "Un héritage d'excellence",
     "aboutH2Highlight": "académique",
-    "aboutP1": "L'Université Globale forme les leaders de demain depuis des décennies. Notre communauté internationale diverse favorise la curiosité intellectuelle, la compréhension culturelle et l'excellence professionnelle.",
+    "aboutP1": "Modesse Business School  forme les leaders de demain depuis des décennies. Notre communauté internationale diverse favorise la curiosité intellectuelle, la compréhension culturelle et l'excellence professionnelle.",
     "aboutP2": "Avec un corps enseignant de renommée mondiale, des installations de recherche de pointe et un réseau mondial inégalé, nous donnons à nos étudiants tout ce dont ils ont besoin pour s'épanouir.",
     "discoverMore": "En savoir plus",
     "quote": "\u00ab L\u2019éducation n\u2019est pas le remplissage d\u2019un seau, mais l\u2019allumage d\u2019un feu. \u00bb",
@@ -219,6 +219,6 @@
   "legal": "Mentions légales",
   "privacy": "Politique de confidentialité",
   "accessibility": "Accessibilité",
-  "copyright": "Université Globale. Tous droits réservés."
+  "copyright": "Modesse Business School . Tous droits réservés."
 }
 }

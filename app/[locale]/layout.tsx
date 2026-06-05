@@ -4,8 +4,11 @@ import { getMessages } from "next-intl/server";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Global University | Excellence in Education",
+  title: "Modesse Business School | Excellence in Education",
   description: "A world-class institution dedicated to shaping global leaders.",
+   icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default async function LocaleLayout({
