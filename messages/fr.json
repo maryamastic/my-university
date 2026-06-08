@@ -198,6 +198,28 @@
   "emailAdmission": "admission@globaluniversity.edu",
   "phoneValue": "+44 (0) 20 7123 4567"
 },
+"programDetail": {
+  "breadcrumbHome": "Accueil",
+  "breadcrumbPrograms": "Programmes",
+  "level": "Niveau",
+  "duration": "Durée",
+  "intake": "Rentrée",
+  "fees": "Frais",
+  "objectiveLabel": "Objectif général",
+  "aboutProgram": "À propos de ce programme",
+  "certificationLabel": "Certification",
+  "whatsappBtn": "Nous contacter sur WhatsApp",
+  "contactBtn": "Contacter les admissions",
+  "programDetails": "Détails du programme",
+  "degreeLevel": "Niveau du diplôme",
+  "tuitionFees": "Frais de scolarité",
+  "curriculumLabel": "Programme",
+  "programStructure": "Structure du programme",
+  "readyLabel": "Prêt à candidater ?",
+  "ctaH2": "Commencez votre parcours aujourd'hui",
+  "ctaP": "Vous avez des questions ? Notre équipe est prête à vous guider.",
+  "detailsLabel": "Détails du programme"
+},
 "footer": {
   "tagline": "Construire des ponts,\nfaçonner un monde meilleur",
   "programs": "Programmes",

@@ -54,28 +54,39 @@ export default function Home() {
 
       {/* ── ABOUT ── */}
       <section className="section" style={{ background: "#f8f4ef" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
-          <FadeUp>
-            <p style={{ fontSize: "0.72rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "1rem" }}>{t("aboutLabel")}</p>
-            <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.2rem, 4vw, 3.5rem)", fontWeight: 300, color: "#1a1a2e", marginBottom: "1.2rem" }}>
-              {t("aboutH2")} <em style={{ color: "#e84e0f" }}>{t("aboutH2Highlight")}</em>
-            </h2>
-            <div className="gold-line" />
-            <p style={{ color: "#5a6070", marginTop: "1.5rem", marginBottom: "1.2rem", fontSize: "0.95rem", lineHeight: 1.9 }}>{t("aboutP1")}</p>
-            <p style={{ color: "#5a6070", marginBottom: "2rem", fontSize: "0.95rem", lineHeight: 1.9 }}>{t("aboutP2")}</p>
-            <Link href={`/${locale}/about`} className="btn btn-orange">{t("discoverMore")}</Link>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <div style={{ background: "#fff", border: "1px solid rgba(201,168,76,0.25)", padding: "3rem", position: "relative", boxShadow: "8px 8px 0 rgba(201,168,76,0.12)" }}>
-              <div style={{ position: "absolute", top: "-1rem", left: "-1rem", width: "2rem", height: "2rem", border: "2px solid #e84e0f", borderRight: "none", borderBottom: "none" }} />
-              <div style={{ position: "absolute", bottom: "-1rem", right: "-1rem", width: "2rem", height: "2rem", border: "2px solid #e84e0f", borderLeft: "none", borderTop: "none" }} />
-              <blockquote style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.6rem", fontWeight: 300, fontStyle: "italic", color: "#1a1a2e", lineHeight: 1.6, marginBottom: "1.5rem" }}>
-                {t("quote")}
-              </blockquote>
-              <p style={{ fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#e84e0f" }}>{t("quoteAuthor")}</p>
-            </div>
-          </FadeUp>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}
+            className="about-grid">
+            <FadeUp>
+              <p style={{ fontSize: "0.72rem", letterSpacing: "0.25em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "1rem" }}>{t("aboutLabel")}</p>
+              <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.2rem, 4vw, 3.5rem)", fontWeight: 300, color: "#1a1a2e", marginBottom: "1.2rem" }}>
+                {t("aboutH2")} <em style={{ color: "#e84e0f" }}>{t("aboutH2Highlight")}</em>
+              </h2>
+              <div className="gold-line" />
+              <p style={{ color: "#5a6070", marginTop: "1.5rem", marginBottom: "1.2rem", fontSize: "0.95rem", lineHeight: 1.9 }}>{t("aboutP1")}</p>
+              <p style={{ color: "#5a6070", marginBottom: "2rem", fontSize: "0.95rem", lineHeight: 1.9 }}>{t("aboutP2")}</p>
+              <Link href={`/${locale}/about`} className="btn btn-orange">{t("discoverMore")}</Link>
+            </FadeUp>
+            <FadeUp delay={0.15}>
+              <div style={{ background: "#fff", border: "1px solid rgba(201,168,76,0.25)", padding: "3rem", position: "relative", boxShadow: "8px 8px 0 rgba(201,168,76,0.12)" }}>
+                <div style={{ position: "absolute", top: "-1rem", left: "-1rem", width: "2rem", height: "2rem", border: "2px solid #e84e0f", borderRight: "none", borderBottom: "none" }} />
+                <div style={{ position: "absolute", bottom: "-1rem", right: "-1rem", width: "2rem", height: "2rem", border: "2px solid #e84e0f", borderLeft: "none", borderTop: "none" }} />
+                <blockquote style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.6rem", fontWeight: 300, fontStyle: "italic", color: "#1a1a2e", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+                  {t("quote")}
+                </blockquote>
+                <p style={{ fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#e84e0f" }}>{t("quoteAuthor")}</p>
+              </div>
+            </FadeUp>
+          </div>
         </div>
+        <style>{`
+          @media (max-width: 768px) {
+            .about-grid {
+              grid-template-columns: 1fr !important;
+              gap: 3rem !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* ── PROGRAMS ── */}
