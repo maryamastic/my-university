@@ -92,50 +92,51 @@ export default function Navbar() {
   ];
 
   // Mega menu built from translations
-  const megaData = {
-    programs: {
-      cols: [
-        {
-          head: t("mega.bachelorsHead"),
-          links: [
-            { label: t("mega.bachelor1"), href: "/programs/bachelors" },
-            { label: t("mega.bachelor2"), href: "/programs/bachelors" },
-            { label: t("mega.bachelor3"), href: "/programs/bachelors" },
-            { label: t("mega.bachelor4"), href: "/programs/bachelors" },
-          ],
-        },
-        {
-          head: t("mega.mastersHead"),
-          links: [
-            { label: t("mega.master1"), href: "/programs/masters" },
-            { label: t("mega.master2"), href: "/programs/masters" },
-            { label: t("mega.master3"), href: "/programs/masters" },
-            { label: t("mega.master4"), href: "/programs/masters" },
-            { label: t("mega.master5"), href: "/programs/masters" },
-            { label: t("mega.master6"), href: "/programs/masters" },
-          ],
-        },
-        {
-          head: t("mega.execHead"),
-          links: [
-            { label: t("mega.exec1"), href: "/programs/masters" },
-            { label: t("mega.exec2"), href: "/programs/masters" },
-            { label: t("mega.exec3"), href: "/programs/masters" },
-            { label: t("mega.exec4"), href: "/programs/masters" },
-          ],
-        },
-        {
-          head: t("mega.allHead"),
-          links: [
-            { label: t("mega.all1"), href: "/programs" },
-            { label: t("mega.all2"), href: "/programs" },
-            { label: t("mega.all3"), href: "/programs" },
-          ],
-          showBtn: true,
-        },
-      ],
-    },
-  } as Record<string, { cols: { head: string; links: { label: string; href: string }[]; showBtn?: boolean }[] }>;
+ // In your Navbar.tsx, replace the megaData object with this:
+
+const megaData = {
+  programs: {
+    cols: [
+      {
+        head: t("mega.bachelorsHead"),
+        links: [
+          { label: t("mega.bachelor1"), href: "/programs/bba" },
+          { label: t("mega.bachelor2"), href: "/programs/bachelor-tourism-hospitality" },
+          { label: t("mega.bachelor3"), href: "/programs/bachelor-hotel-management" },
+        ],
+      },
+      {
+        head: t("mega.mastersHead"),
+        links: [
+          { label: t("mega.master1"), href: "/programs/mba" },
+          { label: t("mega.master2"), href: "/programs/master-international-business" },
+          { label: t("mega.master3"), href: "/programs/master-international-marketing" },
+          { label: t("mega.master4"), href: "/programs/master-digital-marketing" },
+          { label: t("mega.master5"), href: "/programs/master-international-management" },
+          { label: t("mega.master6"), href: "/programs/master-tourism-hospitality" },
+        ],
+      },
+      {
+        head: t("mega.execHead"),
+        links: [
+          { label: t("mega.exec1"), href: "/programs/msc-supply-chain" },
+          { label: t("mega.exec2"), href: "/programs/mba" },
+          { label: t("mega.exec3"), href: "/programs/mba" },
+          { label: t("mega.exec4"), href: "/programs/mba" },
+        ],
+      },
+      {
+        head: t("mega.allHead"),
+        links: [
+          { label: t("mega.all1"), href: "/programs" },
+          { label: t("mega.all2"), href: "/programs" },
+          { label: t("mega.all3"), href: "/programs" },
+        ],
+        showBtn: true,
+      },
+    ],
+  },
+} as Record<string, { cols: { head: string; links: { label: string; href: string }[]; showBtn?: boolean }[] }>;
 
   return (
     <div style={{ position: "sticky", top: 0, zIndex: 200 }}>
