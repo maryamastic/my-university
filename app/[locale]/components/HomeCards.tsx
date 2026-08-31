@@ -2,21 +2,38 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export function ProgramCard({ p }: { p: { title: string; sub: string; duration: string; href: string; accent: string } }) {
+export function ProgramCard({ p }: {
+  p: { title: string; sub?: string; level?: string; duration: string; href?: string; accent?: string; code?: string }
+}) {
   const [hov, setHov] = useState(false);
+  const accent = p.accent ?? "#003366";
+  const label  = p.sub ?? p.level ?? "";
+  const href   = p.href ?? "#";
+
   return (
-    <Link href={p.href} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ display: "block", textDecoration: "none", background: "#fff", borderTop: `4px solid ${p.accent}`, padding: "24px 20px", boxShadow: hov ? "0 8px 28px rgba(0,0,0,0.12)" : "0 2px 8px rgba(0,0,0,0.06)", transform: hov ? "translateY(-4px)" : "none", transition: "all 0.25s" }}>
+    <Link href={href}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        display: "block", textDecoration: "none", background: "#fff",
+        borderTop: `4px solid ${accent}`, padding: "24px 20px",
+        boxShadow: hov ? "0 8px 28px rgba(0,0,0,0.12)" : "0 2px 8px rgba(0,0,0,0.06)",
+        transform: hov ? "translateY(-4px)" : "none", transition: "all 0.25s",
+      }}>
       <span style={{
-        display: "inline-block",
-        fontFamily: "Montserrat, sans-serif", fontSize: "9px", fontWeight: 800,
-        letterSpacing: "0.1em", textTransform: "uppercase",
-        color: p.accent === "#e84e0f" ? "#e84e0f" : "#003366",
-        border: `1px solid ${p.accent === "#e84e0f" ? "#e84e0f" : "#003366"}`,
+        display: "inline-block", fontFamily: "Montserrat, sans-serif",
+        fontSize: "9px", fontWeight: 800, letterSpacing: "0.1em",
+        textTransform: "uppercase",
+        color: accent === "#e84e0f" ? "#e84e0f" : "#003366",
+        border: `1px solid ${accent === "#e84e0f" ? "#e84e0f" : "#003366"}`,
         padding: "3px 10px", marginBottom: "12px",
-      }}>{p.sub}</span>
-      <h3 style={{ fontFamily: "Montserrat, sans-serif", fontSize: "15px", fontWeight: 800, color: "#1a1a1a", marginBottom: "6px", lineHeight: 1.3 }}>{p.title}</h3>
-      <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "12px", color: "#999", marginBottom: "16px" }}>Duration: {p.duration}</p>
+      }}>{label}</span>
+      <h3 style={{ fontFamily: "Montserrat, sans-serif", fontSize: "15px", fontWeight: 800, color: "#1a1a1a", marginBottom: "6px", lineHeight: 1.3 }}>
+        {p.title}
+      </h3>
+      <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "12px", color: "#999", marginBottom: "16px" }}>
+        {p.duration}
+      </p>
       <span className="link-arrow">Discover →</span>
     </Link>
   );

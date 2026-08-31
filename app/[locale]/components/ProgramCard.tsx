@@ -1,19 +1,29 @@
 "use client";
+import Link from "next/link";
 
-type Program = { title: string; code: string; duration: string; level: string; };
+export default function ProgramCard({ p }: {
+  p: { title: string; sub?: string; level?: string; duration: string; href?: string; accent?: string; code?: string; desc?: string }
+}) {
+  const label = p.sub ?? p.level ?? "";
+  const href  = p.href ?? "#";
 
-export default function ProgramCard({ program }: { program: Program }) {
   return (
-    <div
-      style={{ background: "#f8f4ef", border: "1px solid rgba(201,168,76,0.25)", padding: "2rem", transition: "all 0.3s ease", cursor: "pointer" }}
+    <Link href={href}
+      style={{ display: "block", textDecoration: "none", background: "#f8f4ef", border: "1px solid rgba(201,168,76,0.25)", padding: "2rem", transition: "all 0.3s ease", cursor: "pointer" }}
       onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#e84e0f"; e.currentTarget.style.background = "#fff"; e.currentTarget.style.boxShadow = "6px 6px 0 rgba(201,168,76,0.15)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(201,168,76,0.25)"; e.currentTarget.style.background = "#f8f4ef"; e.currentTarget.style.boxShadow = "none"; }}
-    >
+      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(201,168,76,0.25)"; e.currentTarget.style.background = "#f8f4ef"; e.currentTarget.style.boxShadow = "none"; }}>
+
+      {/* Top row: faded code + level badge */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.2rem" }}>
-<span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 700, color: "rgba(232, 78, 15, 0.15)" }}>{program.code}</span>        <span style={{ fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#e84e0f ", border: "1px solid #e84e0f", padding: "0.25rem 0.75rem" }}>{program.level}</span>
+        <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 700, color: "rgba(232,78,15,0.15)" }}>{p.code}</span>
+        <span style={{ fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#e84e0f", border: "1px solid #e84e0f", padding: "0.25rem 0.75rem" }}>{label}</span>
       </div>
-      <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.25rem", fontWeight: 600, color: "#1a1a2e", marginBottom: "0.75rem", lineHeight: 1.3 }}>{program.title}</h3>
-      <p style={{ fontSize: "0.78rem", color: "#8a9090", letterSpacing: "0.1em", textTransform: "uppercase" as const }}>Duration: {program.duration}</p>
-    </div>
+
+      {/* Title */}
+      <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.25rem", fontWeight: 600, color: "#1a1a2e", marginBottom: "0.75rem", lineHeight: 1.3 }}>{p.title}</h3>
+
+      {/* Duration */}
+      <p style={{ fontSize: "0.78rem", color: "#8a9090", letterSpacing: "0.1em", textTransform: "uppercase" }}>Duration: {p.duration}</p>
+    </Link>
   );
 }
