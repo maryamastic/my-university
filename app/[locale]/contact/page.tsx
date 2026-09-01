@@ -153,11 +153,11 @@ export default function ContactPage() {
                 <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.4rem" }}>
                   {t("admissionsLabel")}
                 </p>
-                <a href="mailto:info@modesse.fr"
+                <a href="mailto:info@nexora-bs.fr"
                   style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)", textDecoration: "none" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(0, 0, 0, 0.75)")}>
-                  info@modesse.fr
+                  info@nexora-bs.fr
                 </a>
               </div>
 
@@ -166,11 +166,11 @@ export default function ContactPage() {
                 <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.4rem" }}>
                   {t("generalLabel")}
                 </p>
-                <a href="mailto:info@modesse.fr"
+                <a href="mailto:info@nexora-bs.fr"
                   style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)", textDecoration: "none" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(0, 0, 0, 0.75)")}>
-                 info@modesse.fr
+                 info@nexora-bs.fr
                 </a>
               </div>
 

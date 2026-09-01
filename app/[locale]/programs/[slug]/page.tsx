@@ -29,7 +29,7 @@ const programs: Record<string, {
       { label: "3rd Year — 1st Semester", courses: ["Business Ethics & Corporate Social Responsibility", "Sustainable Supply Chain Management", "Graduation Assignment", "Business Strategy", "French as a Foreign Language"] },
       { label: "3rd Year — Elective Courses (choose 2)", courses: ["Strategic Marketing Planning", "Marketing Tourism", "Treasury and International Risk Management", "Data Analysis for Business Management", "Advertising and Promotion", "International HR Management", "Family Entrepreneurship", "Innovation & Lean Start-up", "Luxury Brand Management", "Financial Management", "Geopolitics"] },
     ],
-    whatsappMsg: "Hello, I am interested in the BBA program at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the BBA program at Nexora Business School International. Could you please provide more information?",
   },
   "bachelor-tourism-hospitality": {
     code: "BTH", title: "Bachelor in Tourism and Hospitality Management",
@@ -42,7 +42,7 @@ const programs: Record<string, {
       { label: "2nd Year", courses: ["Tourism Planning and Experience", "Hotel and Restaurant Design", "Heritage Tourism and International Hospitality Cultures", "Human Resources Management in Tourism", "Marketing Tourism and E-Commerce", "Tourism and Hospitality Law", "Front Office Operations and Reservation Systems", "Housekeeping Operations", "Transportation: The Airline and Cruising Industry", "Hotel Yield Management", "Wine and Beverage Studies", "Food Hygiene, Safety and Terminology"] },
       { label: "3rd Year", courses: ["Sustainable Tourism in the Developing World", "Strategic Management in Hotel and Hospitality Businesses", "Costing and Budgets of Tourism and Hospitality Industry", "Dissertation", "Tourism and Urban Change", "Event Experience Design", "Food and Beverage Workshops", "Commodity Purchasing and Food Merchandising", "Business French language"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Bachelor in Tourism and Hospitality Management at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Bachelor in Tourism and Hospitality Management at Nexora Business School International. Could you please provide more information?",
   },
   "bachelor-hotel-management": {
     code: "BHM", title: "Bachelor in Hotel Management",
@@ -55,7 +55,7 @@ const programs: Record<string, {
       { label: "2nd Year", courses: ["Financial Management", "Strategic Marketing", "HR Management", "Advanced Excel", "Business Law", "Oral Communication", "Economic Environment", "Documentary and Strategic Monitoring", "Tourism Economy", "Crus des Vins du Monde", "Sustainable Development Project & CSR", "Business English & English for Hospitality", "F&B Environment", "Hospitality Environment", "Professional Practice"] },
       { label: "3rd Year", courses: ["Management Control", "Operational Marketing", "Management and Leadership", "Taxation", "Intercultural Team Management", "Sales Technique and Negotiation", "Professional IT", "Communication", "Community Management", "Business Game", "Wines, Beers, Spirits", "Geopolitics", "Tourism and Travel", "English for Managers", "Professional Practice"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Bachelor in Hotel Management at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Bachelor in Hotel Management at Nexora Business School International. Could you please provide more information?",
   },
   "master-international-business": {
     code: "MIB", title: "Master in International Business",
@@ -69,7 +69,7 @@ const programs: Record<string, {
       { label: "3rd Semester", courses: ["Strategic Management", "Strategic Finance", "Strategic Marketing", "Decision & Game Theory", "Management Control", "Sales & Relations Strategies", "Purchase & Supply Chain", "HR and Diversity Management", "Module Soft Skills", "English for Business I or FLE"] },
       { label: "4th Semester", courses: ["Entrepreneurship and Systemic Change", "Alternative & Sustainable Business Model", "Digital Change Management", "Digital Business Model", "Geopolitics and Business Strategy", "International Entrepreneurship Week", "English for Business 2 or FLE"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in International Business at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Master in International Business at  Nexora Business School International. Could you please provide more information?",
   },
   "mba": {
     code: "MBA", title: "Master of Business Administration (MBA)",
@@ -83,7 +83,7 @@ const programs: Record<string, {
       { label: "3rd Semester", courses: ["Team Management", "Economic Business Philosophy", "Strategic Planning", "Marketing & Sales Activity Management Control", "Operational Marketing", "Key Accounts Negotiation", "Sales Action Plan", "Commercial Performance Management"] },
       { label: "4th Semester", courses: ["Project Work I", "International Project II", "Master Thesis"] },
     ],
-    whatsappMsg: "Hello, I am interested in the MBA at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the MBA at Nexora Business School International. Could you please provide more information?",
   },
   "master-international-marketing": {
     code: "MIM-MKT", title: "Master in International Marketing",
@@ -94,7 +94,7 @@ const programs: Record<string, {
     semesters: [
       { label: "Program Modules", courses: ["Strategic Management", "Performance Control", "Business Ethics", "Digital Business", "Project Management", "Marketing Strategy & Operation", "Financial Management", "Entrepreneurship", "International Marketing", "Consumer Behavior Analysis", "Digital Marketing", "Digital Transformation", "Business Intelligence", "Management of IT", "Digital Law", "Web Design & Development", "Brand Strategy and Management", "Change Management & Knowledge", "Market Finance", "Risk Management", "Sustainable Strategies", "Doing Business Internationally", "Business Law", "HR Management", "Impact Leadership", "Leading Change", "Sales & Negotiation", "Capstone Project"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in International Marketing at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Master in International Marketing at Nexora Business School International. Could you please provide more information?",
   },
   "master-digital-marketing": {
     code: "MDM", title: "Master in Digital Marketing",
@@ -108,7 +108,7 @@ const programs: Record<string, {
       { label: "3rd Semester", courses: ["Strategic Management", "Strategic Finance", "Strategic Marketing", "Decision & Game Theory", "Management Control", "Sales & Relations Strategies", "Purchase & Supply Chain", "HR and Diversity Management", "Module Soft Skills", "English for Business 1 or FLE"] },
       { label: "4th Semester", courses: ["Marketing for Alternative Organisations", "Cross-cultural Negotiations", "Blockchain for Marketing & Sales", "Mark'Strat", "Sector Marketing", "International Entrepreneurship Week", "Power Platform by Microsoft", "English for Business 2 or FLE"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in Digital Marketing at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Master in Digital Marketing at Nexora Business School International. Could you please provide more information?",
   },
   "master-international-management": {
     code: "MIM", title: "Master in International Management",
@@ -122,7 +122,7 @@ const programs: Record<string, {
       { label: "3rd Semester", courses: ["Advanced Strategy: Sustainable Business Development", "Cross-cultural Management & International HRM", "International Management Control", "Commercial Negotiation", "Digital Marketing", "Export and International Trade", "Supply Chain Management", "Practitioner Conferences"] },
       { label: "4th Semester", courses: ["International Project Management & Consulting Projects", "Internship / Entrepreneurial Project"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in International Management at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Master in International Management at Nexora Business School International. Could you please provide more information?",
   },
   "master-tourism-hospitality": {
     code: "MTH", title: "Master in Tourism and Hospitality Management",
@@ -138,7 +138,7 @@ const programs: Record<string, {
       { label: "2nd Year — Marketing", courses: ["Consumer Psychology and Persuasion Strategy", "Marketing and Sales Strategies", "International Marketing", "Brand Management Strategies", "E-tourism", "CRM and Client Database Management"] },
       { label: "2nd Year — Key Sectors", courses: ["Luxury Travel and Tourism", "Tourism and Leisure Marketing", "Hotel Business Management", "Catering and Gastronomy", "Events Project Management"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in Tourism and Hospitality Management at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Master in Tourism and Hospitality Management at Nexora Business School International. Could you please provide more information?",
   },
   "msc-supply-chain": {
     code: "SCM", title: "MSc Supply Chain Management",
@@ -152,7 +152,7 @@ const programs: Record<string, {
       { label: "3rd Semester", courses: ["Strategic Management", "Strategic Finance", "Strategic Marketing", "Decision & Game Theory", "Management Control", "Sales & Relations Strategies", "Purchase & Supply Chain", "HR and Diversity Management", "Module Soft Skills", "English for Business 1 or FLE"] },
       { label: "4th Semester", courses: ["Sustainable Management", "Global Supply Chain Sustainability and Digitalisation", "Alternative & Sustainable Business Model", "Economics of Big Data, AI & Blockchain", "Digital Business Model", "Statistics for Business", "International Entrepreneurship Week", "English for Business 2 or FLE"] },
     ],
-    whatsappMsg: "Hello, I am interested in the MSc Supply Chain Management at Modesse Business School. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the MSc Supply Chain Management at Nexora Business School International. Could you please provide more information?",
   },
 };
 
