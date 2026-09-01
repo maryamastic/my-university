@@ -178,8 +178,8 @@ const megaData = {
   alt="Eiffel Tower"
 />  {/* School name */}
   <div>
-    <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Modesse</div>
-    <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05 }}>Business School</div>
+    <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Nexora</div>
+    <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05 }}>Business School International</div>
   </div>
 </div>
             </div>
