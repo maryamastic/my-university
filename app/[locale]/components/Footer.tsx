@@ -34,7 +34,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "22px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Nexora</div>
-          <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "22px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05, marginBottom: "12px" }}>Business School Internationa</div>
+          <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "22px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05, marginBottom: "12px" }}>Business School International</div>
           <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, fontStyle: "italic", color: "rgba(255,255,255,0.82)", lineHeight: 1.6, marginBottom: "14px", whiteSpace: "pre-line" }}>
             {t("tagline")}
           </p>

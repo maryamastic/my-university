@@ -4,7 +4,7 @@ import { getMessages } from "next-intl/server";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Modesse Business School | Excellence in Education",
+  title: "Nexora Business School International | Excellence in Education",
   description: "A world-class institution dedicated to shaping global leaders.",
    icons: {
     icon: '/favicon.png',
