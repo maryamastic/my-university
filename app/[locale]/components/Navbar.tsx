@@ -133,8 +133,8 @@ export default function Navbar() {
     head: t("mega.allHead"),
     links: [
       { label: t("mega.all1"), href: "/programs" },
-      { label: t("mega.all2"), href: "/programs" },
-      { label: t("mega.all3"), href: "/programs" },
+      { label: t("mega.all2"), href: "/programs/bachelors" },
+    { label: t("mega.all3"), href: "/programs/masters" },
     ],
     showBtn: true,
   },
