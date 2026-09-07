@@ -14,12 +14,12 @@ export default function Home() {
 
   // ── All data built from translations ──
 const programs = [
-  { title: t("programs.bba.title"), code: t("programs.bba.code"), duration: t("programs.bba.duration"), sub: t("programs.bba.sub"), href: `/${locale}/programs/bba`,                          accent: "#003366" },
-  { title: t("programs.mba.title"), code: t("programs.mba.code"), duration: t("programs.mba.duration"), sub: t("programs.mba.sub"), href: `/${locale}/programs/mba`,                          accent: "#003366" },
-  { title: t("programs.dm.title"),  code: t("programs.dm.code"),  duration: t("programs.dm.duration"),  sub: t("programs.dm.sub"),  href: `/${locale}/programs/master-digital-marketing`,    accent: "#003366" },
-  { title: t("programs.scm.title"), code: t("programs.scm.code"), duration: t("programs.scm.duration"), sub: t("programs.scm.sub"), href: `/${locale}/programs/msc-supply-chain`,             accent: "#003366" },
-  { title: t("programs.bth.title"), code: t("programs.bth.code"), duration: t("programs.bth.duration"), sub: t("programs.bth.sub"), href: `/${locale}/programs/bachelor-tourism-hospitality`, accent: "#003366" },
-  { title: t("programs.mib.title"), code: t("programs.mib.code"), duration: t("programs.mib.duration"), sub: t("programs.mib.sub"), href: `/${locale}/programs/master-international-business`, accent: "#e84e0f" },
+  { title: t("programs.ibrm.title"), code: t("programs.ibrm.code"), duration: t("programs.ibrm.duration"), sub: t("programs.ibrm.sub"), href: `/${locale}/programs/international-business-retail-management`, accent: "#003366" },
+  { title: t("programs.mibm.title"), code: t("programs.mibm.code"), duration: t("programs.mibm.duration"), sub: t("programs.mibm.sub"), href: `/${locale}/programs/master-international-business-management`, accent: "#003366" },
+  { title: t("programs.htm.title"),  code: t("programs.htm.code"),  duration: t("programs.htm.duration"),  sub: t("programs.htm.sub"),  href: `/${locale}/programs/hospitality-tourism-management`, accent: "#003366" },
+  { title: t("programs.mim.title"),  code: t("programs.mim.code"),  duration: t("programs.mim.duration"),  sub: t("programs.mim.sub"),  href: `/${locale}/programs/master-international-marketing`, accent: "#003366" },
+  { title: t("programs.ess.title"),  code: t("programs.ess.code"),  duration: t("programs.ess.duration"),  sub: t("programs.ess.sub"),  href: `/${locale}/programs/entrepreneurship-startup-strategies`, accent: "#003366" },
+  { title: t("programs.mlbm.title"), code: t("programs.mlbm.code"), duration: t("programs.mlbm.duration"), sub: t("programs.mlbm.sub"), href: `/${locale}/programs/master-luxury-brand-management`, accent: "#e84e0f" },
 ];
 
   const stats = [

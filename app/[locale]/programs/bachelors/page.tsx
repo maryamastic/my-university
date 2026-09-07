@@ -10,11 +10,11 @@ export default function BachelorsPage() {
   const locale = useLocale();
 
   const programs = [
-    { title: t("bba.title"), code: "BBA", duration: t("bba.duration"), intake: t("bba.intake"), desc: t("bba.desc"), modules: [t("bba.m1"), t("bba.m2"), t("bba.m3"), t("bba.m4"), t("bba.m5"), t("bba.m6")] },
-    { title: t("dm.title"),  code: "DM",  duration: t("dm.duration"),  intake: t("dm.intake"),  desc: t("dm.desc"),  modules: [t("dm.m1"),  t("dm.m2"),  t("dm.m3"),  t("dm.m4"),  t("dm.m5"),  t("dm.m6")] },
-    { title: t("bth.title"), code: "BTH", duration: t("bth.duration"), intake: t("bth.intake"), desc: t("bth.desc"), modules: [t("bth.m1"), t("bth.m2"), t("bth.m3"), t("bth.m4"), t("bth.m5"), t("bth.m6")] },
-    { title: t("bhm.title"), code: "BHM", duration: t("bhm.duration"), intake: t("bhm.intake"), desc: t("bhm.desc"), modules: [t("bhm.m1"), t("bhm.m2"), t("bhm.m3"), t("bhm.m4"), t("bhm.m5"), t("bhm.m6")] },
-  ];
+  { title: t("ibrm.title"), code: "IBRM", duration: t("ibrm.duration"), intake: t("ibrm.intake"), desc: t("ibrm.desc"), modules: [t("ibrm.m1"), t("ibrm.m2"), t("ibrm.m3"), t("ibrm.m4"), t("ibrm.m5"), t("ibrm.m6")] },
+  { title: t("spm.title"),  code: "SPM",  duration: t("spm.duration"),  intake: t("spm.intake"),  desc: t("spm.desc"),  modules: [t("spm.m1"),  t("spm.m2"),  t("spm.m3"),  t("spm.m4"),  t("spm.m5"),  t("spm.m6")] },
+  { title: t("htm.title"),  code: "HTM",  duration: t("htm.duration"),  intake: t("htm.intake"),  desc: t("htm.desc"),  modules: [t("htm.m1"),  t("htm.m2"),  t("htm.m3"),  t("htm.m4"),  t("htm.m5"),  t("htm.m6")] },
+  { title: t("ess.title"),  code: "ESS",  duration: t("ess.duration"),  intake: t("ess.intake"),  desc: t("ess.desc"),  modules: [t("ess.m1"),  t("ess.m2"),  t("ess.m3"),  t("ess.m4"),  t("ess.m5"),  t("ess.m6")] },
+];
 
   return (
     <>

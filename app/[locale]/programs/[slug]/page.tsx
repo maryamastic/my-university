@@ -1,8 +1,8 @@
 "use client";
 import { useLocale, useTranslations } from "next-intl";
+import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import FadeUp from "../../components/FadeUp";
@@ -15,160 +15,212 @@ const programs: Record<string, {
   semesters: { label: string; courses: string[] }[];
   whatsappMsg: string;
 }> = {
-  "bba": {
-    code: "BBA", title: "Bachelor of Business Administration",
-    level: "Undergraduate", duration: "3 Years",
+  "international-business-retail-management": {
+    code: "IBRM", title: "International Business & Retail Management",
+    level: "Undergraduate — Bachelor ", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "€3,000/year — Total: €9,000", certification: "Level 6 RNCP Title",
-    objective: "This professional degree is recommended for those considering a career abroad or in an international environment. The training is general, but the third year allows for specialisation in two areas, which the student can deepen by continuing their MBA studies.",
+    fees: "Contact admissions for current tuition", certification: " Level 6 Title (confirm registration number with MISB)",
+    objective: "This program develops expertise in management, commerce, and strategy, with artificial intelligence tools integrated throughout. Students master cross-border commercial operations, retail strategy, and international business development in line with market expectations.",
     semesters: [
-      { label: "1st Year — 1st Semester", courses: ["Introduction to Organisations", "Financial Mathematics", "Introduction to Cross-Cultural Communications", "Principles of Marketing", "Accounting Principles", "Innovation and Digital Marketing", "Using Social Media in Business", "Research Methods II", "Introduction to Operations and Supply Chain", "LV1 English", "LV2 FLE"] },
-      { label: "1st Year — 2nd Semester", courses: ["Introduction to Management", "Economic Conditions", "Introduction to Statistics", "Mix Marketing and Communication", "Comparative Contracts Law", "Research Methods I", "International Seminar", "Business IT Tools II", "Introduction to Geopolitics", "LV1 English", "LV2 FLE"] },
-      { label: "2nd Year — 1st Semester", courses: ["Financial Accounting", "Cross-Cultural Management", "International Economics", "Market Research", "Human Resources Management", "International Trade", "Advanced Statistics", "Business IT Tools III", "Geopolitical Future", "LV1 English", "LV2 FLE"] },
-      { label: "2nd Year — 2nd Semester", courses: ["Financial Analysis", "International Business Environment", "International Negotiation", "Innovation and Digital Marketing", "Using Social Media in Business", "Research Methods II", "Introduction to Operations and Supply Chain", "LV1 English", "LV2 FLE"] },
-      { label: "3rd Year — 1st Semester", courses: ["Business Ethics & Corporate Social Responsibility", "Sustainable Supply Chain Management", "Graduation Assignment", "Business Strategy", "French as a Foreign Language"] },
-      { label: "3rd Year — Elective Courses (choose 2)", courses: ["Strategic Marketing Planning", "Marketing Tourism", "Treasury and International Risk Management", "Data Analysis for Business Management", "Advertising and Promotion", "International HR Management", "Family Entrepreneurship", "Innovation & Lean Start-up", "Luxury Brand Management", "Financial Management", "Geopolitics"] },
+      { label: "Year 1", courses: ["Introduction to International Business", "Retail Fundamentals", "Business Communication", "Marketing Principles", "Introduction to AI in Business", "French as a Foreign Language"] },
+      { label: "Year 2", courses: ["International Trade Operations", "Distribution Management", "Consumer Behaviour", "Supply Chain Basics", "Cross-Cultural Management", "Business French"] },
+      { label: "Year 3", courses: ["Retail Strategy", "Global Business Development", "Customer Relationship Management", "Capstone Project", "Internship / Professional Practice"] },
     ],
-    whatsappMsg: "Hello, I am interested in the BBA program at Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the International Business & Retail Management Bachelor at MISB. Could you please provide more information?",
   },
-  "bachelor-tourism-hospitality": {
-    code: "BTH", title: "Bachelor in Tourism and Hospitality Management",
-    level: "Undergraduate", duration: "3 Years",
+  "sales-project-management": {
+    code: "SPM", title: "Sales & Project Management",
+    level: "Undergraduate — Bachelor ", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "€3,000/year — Total: €9,000", certification: "Level 6 RNCP Title",
-    objective: "To introduce students to the world of tourism and hospitality. The 3-year programme inducts students into modern and technological ways of engaging and promoting tourism culture. We offer state-of-the-art education in hospitality management with hands-on experience for the benefit of the students.",
+    fees: "Contact admissions for current tuition", certification: " Level 6 Title (confirm registration number with MISB)",
+    objective: "This program prepares students to lead commercial organisations and manage complex projects, from conception to delivery, with measurable results, using AI tools integrated throughout the curriculum.",
     semesters: [
-      { label: "1st Year", courses: ["Introduction to Hospitality in Tourism and Events", "Tourism Sociology", "Academic Writing & Study Skills", "Consumer Marketing", "Academic English Communications", "Personal & Professional Development & Communications", "Economics for the Global Service Industry", "Introduction to Dining Operations LAB", "Principles of Event Management", "Food & Beverage Service Operations LAB", "Introduction to the French language"] },
-      { label: "2nd Year", courses: ["Tourism Planning and Experience", "Hotel and Restaurant Design", "Heritage Tourism and International Hospitality Cultures", "Human Resources Management in Tourism", "Marketing Tourism and E-Commerce", "Tourism and Hospitality Law", "Front Office Operations and Reservation Systems", "Housekeeping Operations", "Transportation: The Airline and Cruising Industry", "Hotel Yield Management", "Wine and Beverage Studies", "Food Hygiene, Safety and Terminology"] },
-      { label: "3rd Year", courses: ["Sustainable Tourism in the Developing World", "Strategic Management in Hotel and Hospitality Businesses", "Costing and Budgets of Tourism and Hospitality Industry", "Dissertation", "Tourism and Urban Change", "Event Experience Design", "Food and Beverage Workshops", "Commodity Purchasing and Food Merchandising", "Business French language"] },
+      { label: "Year 1", courses: ["Introduction to Sales", "Project Management Fundamentals", "Business Communication", "Marketing Principles", "Introduction to AI in Business", "French as a Foreign Language"] },
+      { label: "Year 2", courses: ["Commercial Negotiation", "Agile Project Delivery", "Client Relationship Management", "Team Leadership", "Cross-Cultural Management", "Business French"] },
+      { label: "Year 3", courses: ["Sales Strategy", "Complex Project Delivery", "Performance Measurement", "Capstone Project", "Internship / Professional Practice"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Bachelor in Tourism and Hospitality Management at Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Sales & Project Management Bachelor at MISB. Could you please provide more information?",
   },
-  "bachelor-hotel-management": {
-    code: "BHM", title: "Bachelor in Hotel Management",
-    level: "Undergraduate", duration: "3 Years",
+  "hospitality-tourism-management": {
+    code: "HTM", title: "Hospitality & Tourism Management",
+    level: "Undergraduate — Bachelor ", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "€3,000/year — Total: €9,000", certification: "Level 6 RNCP Title",
-    objective: "Develop your operational skills in the hotel industry to become responsible for managing a team, implementing a marketing plan, selling and negotiating hotel products and services, mastering interpersonal communication, and managing key performance indicators.",
+    fees: "Contact admissions for current tuition", certification: " Level 6 Title (confirm registration number with MISB)",
+    objective: "This program develops expertise in managing hotel establishments and tourism operations in global environments, combining hands-on practice with strategic and AI-integrated coursework.",
     semesters: [
-      { label: "1st Year", courses: ["Management", "Marketing", "HR Management", "Office Tools", "Business Economics", "Sustainable Development and CSR", "Interculturality", "Professional Culture", "Hygiene and Safety", "Nutrition", "Vintage Wines", "Business Discovery", "English F&B", "F&B Environment", "Hospitality Environment", "Operational Internship"] },
-      { label: "2nd Year", courses: ["Financial Management", "Strategic Marketing", "HR Management", "Advanced Excel", "Business Law", "Oral Communication", "Economic Environment", "Documentary and Strategic Monitoring", "Tourism Economy", "Crus des Vins du Monde", "Sustainable Development Project & CSR", "Business English & English for Hospitality", "F&B Environment", "Hospitality Environment", "Professional Practice"] },
-      { label: "3rd Year", courses: ["Management Control", "Operational Marketing", "Management and Leadership", "Taxation", "Intercultural Team Management", "Sales Technique and Negotiation", "Professional IT", "Communication", "Community Management", "Business Game", "Wines, Beers, Spirits", "Geopolitics", "Tourism and Travel", "English for Managers", "Professional Practice"] },
+      { label: "Year 1", courses: ["Introduction to Hospitality", "Tourism Sociology", "Front Office Operations", "Food & Beverage Basics", "Introduction to AI in Business", "French as a Foreign Language"] },
+      { label: "Year 2", courses: ["Hotel Operations Management", "Tourism Strategy", "Guest Experience Design", "Event Management", "Cross-Cultural Management", "Business French"] },
+      { label: "Year 3", courses: ["Revenue Management", "Destination Marketing", "Sustainable Tourism", "Capstone Project", "Internship / Professional Practice"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Bachelor in Hotel Management at Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Hospitality & Tourism Management Bachelor at MISB. Could you please provide more information?",
   },
-  "master-international-business": {
-    code: "MIB", title: "Master in International Business",
-    level: "Postgraduate", duration: "2 Years",
+  "entrepreneurship-startup-strategies": {
+    code: "ESS", title: "Entrepreneurship & Startup Strategies",
+    level: "Undergraduate — Bachelor ", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "€5,000/year — Total: €10,000", certification: "Level 7 RNCP Title",
-    objective: "This International Business MBA provides a worldwide approach to the major sales and managerial issues: management, business administration, and marketing. It transmits the new values of international leadership to students and develops their global vision, allowing them to take on the management functions they are aiming for.",
+    fees: "Contact admissions for current tuition", certification: " Level 6 Title (confirm registration number with MISB)",
+    objective: "This program builds the entrepreneurial skills needed to launch, structure, and scale innovative businesses on fast-moving markets, integrating AI tools throughout the curriculum.",
     semesters: [
-      { label: "1st Semester", courses: ["Internationalisation of the Firm", "International Human Resource Management", "International Trade", "International Entrepreneurship", "Global Marketing Management", "Cross-cultural Management", "International Finance", "Research Methodology", "Power Platform by Microsoft", "Inclusive Leadership Across Cultures"] },
-      { label: "2nd Semester", courses: ["StratMe'Up", "Introduction to Big Data and Business Analytics", "International Supply Chain Management", "International Project Management", "Legal Issues in International Business", "Influence of Politics on Economic Decision Making", "Culture Matters: The Culturoscope Approach", "Research Methods in Business & Strategy"] },
-      { label: "3rd Semester", courses: ["Strategic Management", "Strategic Finance", "Strategic Marketing", "Decision & Game Theory", "Management Control", "Sales & Relations Strategies", "Purchase & Supply Chain", "HR and Diversity Management", "Module Soft Skills", "English for Business I or FLE"] },
-      { label: "4th Semester", courses: ["Entrepreneurship and Systemic Change", "Alternative & Sustainable Business Model", "Digital Change Management", "Digital Business Model", "Geopolitics and Business Strategy", "International Entrepreneurship Week", "English for Business 2 or FLE"] },
+      { label: "Year 1", courses: ["Introduction to Entrepreneurship", "Business Model Design", "Business Communication", "Marketing Principles", "Introduction to AI in Business", "French as a Foreign Language"] },
+      { label: "Year 2", courses: ["Business Plan Development", "Innovation Management", "Funding & Investment Basics", "Growth Strategy", "Cross-Cultural Management", "Business French"] },
+      { label: "Year 3", courses: ["Lean Startup Methodology", "Scaling Ventures", "Pitch & Investor Relations", "Capstone Project", "Internship / Professional Practice"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in International Business at  Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Entrepreneurship & Startup Strategies Bachelor at MISB. Could you please provide more information?",
   },
-  "mba": {
-    code: "MBA", title: "Master of Business Administration (MBA)",
-    level: "Postgraduate", duration: "2 Years",
+  "master-international-business-management": {
+    code: "MIBM", title: "International Business Management",
+    level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "€5,000/year — Total: €10,000", certification: "Level 7 RNCP Title",
-    objective: "The MBA is a state-of-the-art training program providing thorough expertise in management and leadership for executives and managers. Participants acquire solid strategic competences essential to perform outstandingly in the world of management. Whether developing your career, changing sector, or starting a business, the MBA provides the necessary knowledge and toolkit.",
+    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with MISB)",
+    objective: "This Mastère prepares students and professionals for strategic, high-responsibility roles, combining academic rigour, an international vision, and a leadership-oriented approach to piloting projects and driving change in global organisations.",
     semesters: [
-      { label: "1st Semester", courses: ["Ethics & CSR", "French as Second Language I", "Fundamentals of Sustainable Development for Business", "Area Study I", "Leadership and Change Management", "Finance", "Public & Media Relations", "Innovation Management & New Product Development"] },
-      { label: "2nd Semester", courses: ["Business Planning", "Public Speaking and Communication Skills for Managers", "Negotiation Workshop", "Strategic Management", "Area Study II", "New Technology & Business", "Strategic Alliances", "Capstone Master Project"] },
-      { label: "3rd Semester", courses: ["Team Management", "Economic Business Philosophy", "Strategic Planning", "Marketing & Sales Activity Management Control", "Operational Marketing", "Key Accounts Negotiation", "Sales Action Plan", "Commercial Performance Management"] },
-      { label: "4th Semester", courses: ["Project Work I", "International Project II", "Master Thesis"] },
+      { label: "1st Semester", courses: ["Global Market Strategy", "Cross-Cultural Management", "International Finance", "Research Methodology"] },
+      { label: "2nd Semester", courses: ["Strategic Leadership", "Change Management", "Global Business Development", "Business French / FLE"] },
+      { label: "3rd Semester", courses: ["Advanced Strategic Management", "International Negotiation", "Digital Transformation", "Professional Practice"] },
+      { label: "4th Semester", courses: ["Consulting Project", "Master Thesis"] },
     ],
-    whatsappMsg: "Hello, I am interested in the MBA at Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the International Business Management Mastère at MISB. Could you please provide more information?",
+  },
+  "master-hotel-tourism-management": {
+    code: "MHTM", title: "Hotel & Tourism Management",
+    level: "Postgraduate — Mastère", duration: "2 Years",
+    intake: "September / October or January / February",
+    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with MISB)",
+    objective: "This Mastère prepares hospitality professionals for senior leadership positions in global tourism industries, blending strategic hospitality management with an international outlook.",
+    semesters: [
+      { label: "1st Semester", courses: ["Hospitality Strategy", "Tourism Policy & Planning", "International Finance", "Research Methodology"] },
+      { label: "2nd Semester", courses: ["Revenue Optimisation", "Destination Marketing", "Crisis & Risk Management", "Business French / FLE"] },
+      { label: "3rd Semester", courses: ["Luxury Hospitality", "Digital Tourism", "Sustainable Hospitality", "Professional Practice"] },
+      { label: "4th Semester", courses: ["Consulting Project", "Master Thesis"] },
+    ],
+    whatsappMsg: "Hello, I am interested in the Hotel & Tourism Management Mastère at MISB. Could you please provide more information?",
+  },
+  "master-entrepreneurship-startup-strategies": {
+    code: "MESS", title: "Entrepreneurship & Startup Strategies",
+    level: "Postgraduate — Mastère", duration: "2 Years",
+    intake: "September / October or January / February",
+    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with MISB)",
+    objective: "This Mastère deepens entrepreneurial and leadership skills, preparing students to launch and scale ventures in complex, fast-changing international markets.",
+    semesters: [
+      { label: "1st Semester", courses: ["Venture Strategy", "Innovation Leadership", "International Finance", "Research Methodology"] },
+      { label: "2nd Semester", courses: ["Scaling & Growth", "Investment & Fundraising", "Global Market Entry", "Business French / FLE"] },
+      { label: "3rd Semester", courses: ["Strategic Risk-Taking", "Digital Business Models", "Sustainable Enterprise", "Professional Practice"] },
+      { label: "4th Semester", courses: ["Consulting Project", "Master Thesis"] },
+    ],
+    whatsappMsg: "Hello, I am interested in the Entrepreneurship & Startup Strategies Mastère at MISB. Could you please provide more information?",
   },
   "master-international-marketing": {
-    code: "MIM-MKT", title: "Master in International Marketing",
-    level: "Postgraduate", duration: "2 Years",
+    code: "MIM", title: "International Marketing",
+    level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "€5,000/year — Total: €10,000", certification: "Level 7 RNCP Title",
-    objective: "The international marketing program combines an international dimension (programme in at least two countries), a digital dimension (Open Innovation Challenge and professional thesis), and a managerial dimension providing fundamental skills in strategy, finance, project management, marketing, and communication.",
+    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with MISB)",
+    objective: "This Mastère develops advanced marketing strategy skills for professionals managing brands and campaigns across borders and cultures.",
     semesters: [
-      { label: "Program Modules", courses: ["Strategic Management", "Performance Control", "Business Ethics", "Digital Business", "Project Management", "Marketing Strategy & Operation", "Financial Management", "Entrepreneurship", "International Marketing", "Consumer Behavior Analysis", "Digital Marketing", "Digital Transformation", "Business Intelligence", "Management of IT", "Digital Law", "Web Design & Development", "Brand Strategy and Management", "Change Management & Knowledge", "Market Finance", "Risk Management", "Sustainable Strategies", "Doing Business Internationally", "Business Law", "HR Management", "Impact Leadership", "Leading Change", "Sales & Negotiation", "Capstone Project"] },
+      { label: "1st Semester", courses: ["Global Marketing Strategy", "Consumer Behaviour Across Markets", "International Finance", "Research Methodology"] },
+      { label: "2nd Semester", courses: ["Digital & International Campaigns", "Brand Strategy", "Market Research", "Business French / FLE"] },
+      { label: "3rd Semester", courses: ["International Communications", "E-commerce Strategy", "Marketing Analytics", "Professional Practice"] },
+      { label: "4th Semester", courses: ["Consulting Project", "Master Thesis"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in International Marketing at Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the International Marketing Mastère at MISB. Could you please provide more information?",
   },
-  "master-digital-marketing": {
-    code: "MDM", title: "Master in Digital Marketing",
-    level: "Postgraduate", duration: "2 Years",
+  "master-human-resource-management": {
+    code: "MHRM", title: "Human Resources Management",
+    level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "€5,000/year — Total: €10,000", certification: "Level 7 RNCP Title",
-    objective: "The Master in Digital Marketing Management provides future managers with specialised knowledge, analytical, technical, and managerial skills needed to thrive in global digital marketing and communications fields. Students develop innovative, responsible marketing strategies harnessing digital technologies to maximise customer experience.",
+    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with MISB)",
+    objective: "This Mastère builds expertise in leading people strategy and organisational development within international companies, preparing graduates for senior HR leadership roles.",
     semesters: [
-      { label: "1st Semester", courses: ["Digital Marketing Strategy", "Consumer Psychology & Behavior in Digital Era", "Digital Communication", "Customer Experience Management and Omnichannel Strategy", "Marketing Design for Augmented and Virtual Reality", "Community Management and Social Media Strategy", "Online Marketing Research Methods", "Research Methodology", "Power Platform by Microsoft", "Soft Skills"] },
-      { label: "2nd Semester", courses: ["Marketing Challenge", "Pricing and Customer Value", "Storytelling in the Digital Era", "Mobile Strategy", "Introduction of Digital Metrics", "Graphic and Web Design & Brand Communication", "Gamification in Marketing", "Research Methods in Marketing"] },
-      { label: "3rd Semester", courses: ["Strategic Management", "Strategic Finance", "Strategic Marketing", "Decision & Game Theory", "Management Control", "Sales & Relations Strategies", "Purchase & Supply Chain", "HR and Diversity Management", "Module Soft Skills", "English for Business 1 or FLE"] },
-      { label: "4th Semester", courses: ["Marketing for Alternative Organisations", "Cross-cultural Negotiations", "Blockchain for Marketing & Sales", "Mark'Strat", "Sector Marketing", "International Entrepreneurship Week", "Power Platform by Microsoft", "English for Business 2 or FLE"] },
+      { label: "1st Semester", courses: ["International HR Strategy", "Organisational Behaviour", "International Finance", "Research Methodology"] },
+      { label: "2nd Semester", courses: ["Talent Management", "Labour Law & Compliance", "Change & Culture Management", "Business French / FLE"] },
+      { label: "3rd Semester", courses: ["Leadership Development", "Compensation & Benefits", "Diversity & Inclusion", "Professional Practice"] },
+      { label: "4th Semester", courses: ["Consulting Project", "Master Thesis"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in Digital Marketing at Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Human Resources Management Mastère at MISB. Could you please provide more information?",
   },
-  "master-international-management": {
-    code: "MIM", title: "Master in International Management",
-    level: "Postgraduate", duration: "2 Years",
+  "master-luxury-brand-management": {
+    code: "MLBM", title: "Luxury Brand Management",
+    level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "€5,000/year — Total: €10,000", certification: "Level 7 RNCP Title",
-    objective: "To provide students with comprehensive knowledge and skills in managing businesses and organisations in a global context. The programme equips students with tools and expertise to navigate the complexities of international markets, cultural differences, and diverse business environments.",
+    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with MISB)",
+    objective: "This Mastère masters the strategic and creative dimensions of managing prestige brands, preparing graduates for leadership roles across global luxury markets.",
     semesters: [
-      { label: "1st Semester", courses: ["Strategic Management", "Accounting", "Organisational Behaviour", "Managing Business Information and Technology", "Excel for Professionals"] },
-      { label: "2nd Semester", courses: ["Finance", "International Marketing", "International Strategy", "Business Plan and Entrepreneurship", "Introduction to Research", "Internationalisation and Professionalisation", "Internship"] },
-      { label: "3rd Semester", courses: ["Advanced Strategy: Sustainable Business Development", "Cross-cultural Management & International HRM", "International Management Control", "Commercial Negotiation", "Digital Marketing", "Export and International Trade", "Supply Chain Management", "Practitioner Conferences"] },
-      { label: "4th Semester", courses: ["International Project Management & Consulting Projects", "Internship / Entrepreneurial Project"] },
+      { label: "1st Semester", courses: ["Luxury Brand Strategy", "Heritage & Storytelling", "International Finance", "Research Methodology"] },
+      { label: "2nd Semester", courses: ["Luxury Retail & Distribution", "Digital Luxury Marketing", "Consumer Psychology in Luxury", "Business French / FLE"] },
+      { label: "3rd Semester", courses: ["Global Luxury Markets", "Brand Extension & Licensing", "Sustainability in Luxury", "Professional Practice"] },
+      { label: "4th Semester", courses: ["Consulting Project", "Master Thesis"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in International Management at Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the Luxury Brand Management Mastère at MISB. Could you please provide more information?",
   },
-  "master-tourism-hospitality": {
-    code: "MTH", title: "Master in Tourism and Hospitality Management",
-    level: "Postgraduate", duration: "2 Years",
+    "bbs-international-business-management": {
+    code: "BBS-IBM", title: "BBS — International Business Management",
+    level: "Undergraduate — BBS", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "€5,000/year — Total: €10,000", certification: "Level 7 RNCP Title",
-    objective: "The fields of tourism and hospitality have experienced a revolution in recent years. Digital, innovation, and international development are at the heart of our training program. The program includes special activities to gain practical experience: creative competitions, company visits, and master classes.",
+    fees: "Contact admissions for current tuition",
+    certification: "Bachelor in Business Studies (BBS) — French/English",
+    objective: "The BBS offers a rigorous academic training in management and strategy, grounded in the standards of leading business schools. Designed to develop operational, internationally-minded profiles, it builds mastery of business fundamentals, analytical capability, and the agility to thrive in demanding international environments.",
     semesters: [
-      { label: "1st Year — Professional Methods and Practices", courses: ["Business Game", "Professional Technical Workshops and Personal Management", "Trade Conferences"] },
-      { label: "1st Year — Cross-cutting and Fundamental Courses", courses: ["International Accounting", "Business Plan and Setting Up a Company", "Company Strategy", "International Negotiation", "Business English / TOEIC", "Management Information Systems", "Business Skills"] },
-      { label: "1st Year — Specialized Courses", courses: ["B2C Marketing", "International Marketing", "Digital Marketing", "International Trade", "Global Geopolitical and International Relations", "Brand Strategies", "Marketing Tools in Luxury and Fashion Industries", "Traditional and New Communications Strategies"] },
-      { label: "2nd Year — Management", courses: ["Cross Cultural and Team Management", "Business Plan and Hospitality", "Tourism Law", "Pricing and Yield Management in Tourism", "Hospitality Strategic Forecasting and Budgeting", "Tourism, Geopolitics, and Emerging Country Trends"] },
-      { label: "2nd Year — Marketing", courses: ["Consumer Psychology and Persuasion Strategy", "Marketing and Sales Strategies", "International Marketing", "Brand Management Strategies", "E-tourism", "CRM and Client Database Management"] },
-      { label: "2nd Year — Key Sectors", courses: ["Luxury Travel and Tourism", "Tourism and Leisure Marketing", "Hotel Business Management", "Catering and Gastronomy", "Events Project Management"] },
+      { label: "Year 1", courses: ["Business Fundamentals", "Introduction to Management", "Financial Literacy", "Business Communication", "French as a Foreign Language"] },
+      { label: "Year 2", courses: ["International Management", "Cross-Cultural Communication", "Marketing Principles", "Analytical Thinking", "Business French"] },
+      { label: "Year 3", courses: ["Global Market Awareness", "Strategic Analysis", "Capstone Project", "Internship / Professional Practice"] },
     ],
-    whatsappMsg: "Hello, I am interested in the Master in Tourism and Hospitality Management at Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the BBS International Business Management program at MISB. Could you please provide more information?",
   },
-  "msc-supply-chain": {
-    code: "SCM", title: "MSc Supply Chain Management",
-    level: "Postgraduate", duration: "2 Years",
+  "bbs-hotel-and-tourismmanagement": {
+    code: "BBS-HTM", title: "BBS — Hotel and Tourism Management",
+    level: "Undergraduate — BBS", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "€5,000/year — Total: €10,000", certification: "Level 7 RNCP Title",
-    objective: "A supply chain manager is a master in all areas including sourcing, planning, transportation, distribution, warehousing, inventory management, customer service, and strategic leadership. This intensive programme provides the knowledge and skills required to become a well-rounded supply chain manager.",
+    fees: "Contact admissions for current tuition",
+    certification: "Bachelor in Business Studies (BBS) — French/English",
+    objective: "This BBS track prepares operationally-minded graduates for the hospitality and tourism sector, combining rigorous business fundamentals with sector-specific operational training and an international outlook.",
     semesters: [
-      { label: "1st Semester", courses: ["Operations and Supply Chain Management", "Lean Management", "Innovation Management", "Advanced Statistics", "Supply Chain Strategy", "Agile Project Management", "Business Ethics and Sustainability", "Research Methodology", "Power Platform by Microsoft", "Soft Skills"] },
-      { label: "2nd Semester", courses: ["Global Supply Chain: Contemporary Challenges", "Responsible Purchasing", "Advanced Operations & Supply Chain Management", "Supply Chain and Big Data", "Lean Six Sigma", "Sustainable Supply Chain", "Supplier Relationship Management", "Research Methods in Management"] },
-      { label: "3rd Semester", courses: ["Strategic Management", "Strategic Finance", "Strategic Marketing", "Decision & Game Theory", "Management Control", "Sales & Relations Strategies", "Purchase & Supply Chain", "HR and Diversity Management", "Module Soft Skills", "English for Business 1 or FLE"] },
-      { label: "4th Semester", courses: ["Sustainable Management", "Global Supply Chain Sustainability and Digitalisation", "Alternative & Sustainable Business Model", "Economics of Big Data, AI & Blockchain", "Digital Business Model", "Statistics for Business", "International Entrepreneurship Week", "English for Business 2 or FLE"] },
+      { label: "Year 1", courses: ["Hospitality Fundamentals", "Introduction to Tourism", "Financial Literacy", "Business Communication", "French as a Foreign Language"] },
+      { label: "Year 2", courses: ["Tourism Operations", "Cross-Cultural Communication", "Guest Service Standards", "Analytical Thinking", "Business French"] },
+      { label: "Year 3", courses: ["Global Tourism Awareness", "Strategic Analysis", "Capstone Project", "Internship / Professional Practice"] },
     ],
-    whatsappMsg: "Hello, I am interested in the MSc Supply Chain Management at Nexora Business School International. Could you please provide more information?",
+    whatsappMsg: "Hello, I am interested in the BBS Hotel and Tourism Management program at MISB. Could you please provide more information?",
+  },
+    "dba": {
+    code: "DBA", title: "Doctorate in Business Administration",
+    level: "Doctorate", duration: "3 Years",
+    intake: "September / October or January / February",
+    fees: "From €3,200 (1st year, non-European) / €1,600/year thereafter — tiered by residency, confirm with MISB",
+    certification: "Doctorate in Business Administration (French/English)",
+    objective: "The DBA is a prestigious doctoral programme designed for professionals seeking to elevate their expertise through cutting-edge research, innovative strategy, and global business insight. It prepares future leaders through rigorous, research-driven study conducted in French or English.",
+    semesters: [
+      { label: "Year 1", courses: ["Advanced Research Methodology", "Strategic Management Theory", "Literature Review & Thesis Framing", "Academic Writing"] },
+      { label: "Year 2", courses: ["Applied Business Research", "Data Collection & Analysis", "Global Business Insight", "Thesis Supervision I"] },
+      { label: "Year 3", courses: ["Doctoral Thesis Completion", "Publication & Academic Writing", "Thesis Defence Preparation", "Thesis Supervision II"] },
+    ],
+    whatsappMsg: "Hello, I am interested in the DBA program at MISB. Could you please provide more information?",
+  },
+  "fle": {
+    code: "FLE", title: "Français Langue Étrangère (FLE)",
+    level: "Language Programme", duration: "Ongoing / Term-based",
+    intake: "September / October or January / February",
+    fees: "Contact admissions for current tuition",
+    certification: "MISB French Language Certificate of Completion",
+    objective: "MISB's French as a Foreign Language programme supports international students in building the language skills needed to thrive academically, professionally, and socially in France — taught alongside your main degree programme.",
+    semesters: [
+      { label: "Beginner Level", courses: ["Everyday Communication", "Basic Grammar & Vocabulary", "Pronunciation", "Cultural Orientation"] },
+      { label: "Intermediate Level", courses: ["Academic French", "Business French", "Oral Expression", "Written Expression"] },
+      { label: "Advanced Level", courses: ["French Culture & Society", "Professional Correspondence", "Presentation Skills", "Exam Preparation (DELF/DALF)"] },
+    ],
+    whatsappMsg: "Hello, I am interested in the FLE (French as a Foreign Language) program at MISB. Could you please provide more information?",
   },
 };
-
 const WAIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 );
 
-export default function ProgramDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = React.use(params);
-  const locale = useLocale();
-  const td = useTranslations("programDetail");
-  const p = programs[resolvedParams.slug];
-  if (!p) notFound();
+   export default function ProgramDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+     const resolvedParams = React.use(params);
+     const locale = useLocale();
+     const td = useTranslations("programDetail");
 
+const p = programs[resolvedParams.slug];
+if (!p) notFound();
   const waUrl = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(p.whatsappMsg)}`;
 
   return (

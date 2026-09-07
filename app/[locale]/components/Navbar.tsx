@@ -92,51 +92,55 @@ export default function Navbar() {
   ];
 
   // Mega menu built from translations
- // In your Navbar.tsx, replace the megaData object with this:
-
-const megaData = {
-  programs: {
-    cols: [
-      {
-        head: t("mega.bachelorsHead"),
-        links: [
-          { label: t("mega.bachelor1"), href: "/programs/bba" },
-          { label: t("mega.bachelor2"), href: "/programs/bachelor-tourism-hospitality" },
-          { label: t("mega.bachelor3"), href: "/programs/bachelor-hotel-management" },
-        ],
-      },
-      {
-        head: t("mega.mastersHead"),
-        links: [
-          { label: t("mega.master1"), href: "/programs/mba" },
-          { label: t("mega.master2"), href: "/programs/master-international-business" },
-          { label: t("mega.master3"), href: "/programs/master-international-marketing" },
-          { label: t("mega.master4"), href: "/programs/master-digital-marketing" },
-          { label: t("mega.master5"), href: "/programs/master-international-management" },
-          { label: t("mega.master6"), href: "/programs/master-tourism-hospitality" },
-        ],
-      },
-      {
-        head: t("mega.execHead"),
-        links: [
-          { label: t("mega.exec1"), href: "/programs/msc-supply-chain" },
-          { label: t("mega.exec2"), href: "/programs/mba" },
-          { label: t("mega.exec3"), href: "/programs/mba" },
-          { label: t("mega.exec4"), href: "/programs/mba" },
-        ],
-      },
-      {
-        head: t("mega.allHead"),
-        links: [
-          { label: t("mega.all1"), href: "/programs" },
-          { label: t("mega.all2"), href: "/programs" },
-          { label: t("mega.all3"), href: "/programs" },
-        ],
-        showBtn: true,
-      },
+  const megaData = {
+    programs: {
+     cols: [
+  {
+    head: t("mega.bachelorsHead"),
+    links: [
+      { label: t("mega.bachelor1"), href: "/programs/international-business-retail-management" },
+      { label: t("mega.bachelor2"), href: "/programs/sales-project-management" },
+      { label: t("mega.bachelor3"), href: "/programs/hospitality-tourism-management" },
+      { label: t("mega.bachelor4"), href: "/programs/entrepreneurship-startup-strategies" },
     ],
   },
-} as Record<string, { cols: { head: string; links: { label: string; href: string }[]; showBtn?: boolean }[] }>;
+  {
+    head: t("mega.bbsHead"),
+    links: [
+      { label: t("mega.bbs1"), href: "/programs/bbs-international-business-management" },
+      { label: t("mega.bbs2"), href: "/programs/bbs-hotel-and-tourismmanagement" },
+    ],
+  },
+  {
+    head: t("mega.mastersHead"),
+    links: [
+      { label: t("mega.master1"), href: "/programs/master-international-business-management" },
+      { label: t("mega.master2"), href: "/programs/master-hotel-tourism-management" },
+      { label: t("mega.master3"), href: "/programs/master-entrepreneurship-startup-strategies" },
+      { label: t("mega.master4"), href: "/programs/master-international-marketing" },
+      { label: t("mega.master5"), href: "/programs/master-human-resource-management" },
+      { label: t("mega.master6"), href: "/programs/master-luxury-brand-management" },
+    ],
+  },
+  {
+    head: t("mega.execHead"),
+    links: [
+      { label: t("mega.exec1"), href: "/programs/dba" },
+      { label: t("mega.exec2"), href: "/programs/fle" },
+    ],
+  },
+  {
+    head: t("mega.allHead"),
+    links: [
+      { label: t("mega.all1"), href: "/programs" },
+      { label: t("mega.all2"), href: "/programs" },
+      { label: t("mega.all3"), href: "/programs" },
+    ],
+    showBtn: true,
+  },
+],
+    },
+  } as Record<string, { cols: { head: string; links: { label: string; href: string }[]; showBtn?: boolean }[] }>;
 
   return (
     <div style={{ position: "sticky", top: 0, zIndex: 200 }}>
@@ -170,18 +174,17 @@ const megaData = {
           <Link href={`/${locale}`} style={{ textDecoration: "none", display: "flex", alignItems: "center", paddingRight: "24px" }}>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-  {/* Eiffel Tower  icon */}
-<img 
-  src="https://img.icons8.com/ios/50/e84e0f/eiffel-tower.png" 
-  width="36" 
-  height="36" 
-  alt="Eiffel Tower"
-/>  {/* School name */}
-  <div>
-    <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Nexora</div>
-    <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05 }}>Business School International</div>
-  </div>
-</div>
+                <img
+                  src="https://img.icons8.com/ios/50/e84e0f/eiffel-tower.png"
+                  width="36"
+                  height="36"
+                  alt="Eiffel Tower"
+                />
+                <div>
+                  <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Nexora</div>
+                  <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05 }}>Business School International</div>
+                </div>
+              </div>
             </div>
           </Link>
 
@@ -252,7 +255,7 @@ const megaData = {
                       paddingBottom: "8px", borderBottom: "2px solid #e84e0f", marginBottom: "10px",
                     }}>{col.head}</p>
                     {col.links.map((link) => (
-                      <MegaLink key={link.label} href={`/${locale}${link.href}`}
+                      <MegaLink key={link.href} href={`/${locale}${link.href}`}
                         label={link.label} onClose={() => setActive(null)} />
                     ))}
                     {col.showBtn && (
@@ -293,7 +296,7 @@ const megaData = {
                               <div key={col.head} style={{ marginBottom: "12px" }}>
                                 <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "9px", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "6px" }}>{col.head}</p>
                                 {col.links.map((link) => (
-                                  <Link key={link.label} href={`/${locale}${link.href}`}
+                                  <Link key={link.href} href={`/${locale}${link.href}`}
                                     onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
                                     style={{ display: "block", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "4px 0" }}>
                                     {link.label}
@@ -341,7 +344,16 @@ function MegaLink({ href, label, onClose }: { href: string; label: string; onClo
     <Link href={href} onClick={onClose}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
       style={{ display: "flex", alignItems: "center", gap: "4px", padding: "5px 0", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: hov ? "#e84e0f" : "#333", textDecoration: "none", transition: "color 0.15s" }}>
-      {hov && <span style={{ color: "#e84e0f", fontSize: "11px", fontWeight: 700 }}>›</span>}
+      <span style={{
+        color: "#e84e0f",
+        fontSize: "11px",
+        fontWeight: 700,
+        opacity: hov ? 1 : 0,
+        width: hov ? "auto" : 0,
+        overflow: "hidden",
+        transition: "opacity 0.15s",
+        display: "inline-block",
+      }}>›</span>
       {label}
     </Link>
   );
