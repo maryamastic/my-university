@@ -183,7 +183,7 @@ const programs: Record<string, {
     code: "DBA", title: "Doctorate in Business Administration",
     level: "Doctorate", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "From €3,200 (1st year, non-European) / €1,600/year thereafter — tiered by residency, confirm with NBSI",
+    fees: "Student residing in france: 1400 € / European Students: 2800 € / Non European Students: 4500 €",
     certification: "Doctorate in Business Administration (French/English)",
     objective: "The DBA is a prestigious doctoral programme designed for professionals seeking to elevate their expertise through cutting-edge research, innovative strategy, and global business insight. It prepares future leaders through rigorous, research-driven study conducted in French or English.",
     semesters: [
