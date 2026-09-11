@@ -19,7 +19,7 @@ const programs: Record<string, {
     code: "IBRM", title: "International Business & Retail Management",
     level: "Undergraduate — Bachelor ", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 6 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 6 Title (confirm registration number with NBSI)",
     objective: "This program develops expertise in management, commerce, and strategy, with artificial intelligence tools integrated throughout. Students master cross-border commercial operations, retail strategy, and international business development in line with market expectations.",
     semesters: [
       { label: "Year 1", courses: ["Introduction to International Business", "Retail Fundamentals", "Business Communication", "Marketing Principles", "Introduction to AI in Business", "French as a Foreign Language"] },
@@ -32,7 +32,7 @@ const programs: Record<string, {
     code: "SPM", title: "Sales & Project Management",
     level: "Undergraduate — Bachelor ", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 6 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 6 Title (confirm registration number with NBSI)",
     objective: "This program prepares students to lead commercial organisations and manage complex projects, from conception to delivery, with measurable results, using AI tools integrated throughout the curriculum.",
     semesters: [
       { label: "Year 1", courses: ["Introduction to Sales", "Project Management Fundamentals", "Business Communication", "Marketing Principles", "Introduction to AI in Business", "French as a Foreign Language"] },
@@ -45,7 +45,7 @@ const programs: Record<string, {
     code: "HTM", title: "Hospitality & Tourism Management",
     level: "Undergraduate — Bachelor ", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 6 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 6 Title (confirm registration number with NBSI)",
     objective: "This program develops expertise in managing hotel establishments and tourism operations in global environments, combining hands-on practice with strategic and AI-integrated coursework.",
     semesters: [
       { label: "Year 1", courses: ["Introduction to Hospitality", "Tourism Sociology", "Front Office Operations", "Food & Beverage Basics", "Introduction to AI in Business", "French as a Foreign Language"] },
@@ -58,7 +58,7 @@ const programs: Record<string, {
     code: "ESS", title: "Entrepreneurship & Startup Strategies",
     level: "Undergraduate — Bachelor ", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 6 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 6 Title (confirm registration number with NBSI)",
     objective: "This program builds the entrepreneurial skills needed to launch, structure, and scale innovative businesses on fast-moving markets, integrating AI tools throughout the curriculum.",
     semesters: [
       { label: "Year 1", courses: ["Introduction to Entrepreneurship", "Business Model Design", "Business Communication", "Marketing Principles", "Introduction to AI in Business", "French as a Foreign Language"] },
@@ -71,7 +71,7 @@ const programs: Record<string, {
     code: "MIBM", title: "International Business Management",
     level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 7 Title (confirm registration number with NBSI)",
     objective: "This Mastère prepares students and professionals for strategic, high-responsibility roles, combining academic rigour, an international vision, and a leadership-oriented approach to piloting projects and driving change in global organisations.",
     semesters: [
       { label: "1st Semester", courses: ["Global Market Strategy", "Cross-Cultural Management", "International Finance", "Research Methodology"] },
@@ -85,7 +85,7 @@ const programs: Record<string, {
     code: "MHTM", title: "Hotel & Tourism Management",
     level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 7 Title (confirm registration number with NBSI)",
     objective: "This Mastère prepares hospitality professionals for senior leadership positions in global tourism industries, blending strategic hospitality management with an international outlook.",
     semesters: [
       { label: "1st Semester", courses: ["Hospitality Strategy", "Tourism Policy & Planning", "International Finance", "Research Methodology"] },
@@ -99,7 +99,7 @@ const programs: Record<string, {
     code: "MESS", title: "Entrepreneurship & Startup Strategies",
     level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 7 Title (confirm registration number with NBSI)",
     objective: "This Mastère deepens entrepreneurial and leadership skills, preparing students to launch and scale ventures in complex, fast-changing international markets.",
     semesters: [
       { label: "1st Semester", courses: ["Venture Strategy", "Innovation Leadership", "International Finance", "Research Methodology"] },
@@ -113,7 +113,7 @@ const programs: Record<string, {
     code: "MIM", title: "International Marketing",
     level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 7 Title (confirm registration number with NBSI)",
     objective: "This Mastère develops advanced marketing strategy skills for professionals managing brands and campaigns across borders and cultures.",
     semesters: [
       { label: "1st Semester", courses: ["Global Marketing Strategy", "Consumer Behaviour Across Markets", "International Finance", "Research Methodology"] },
@@ -127,7 +127,7 @@ const programs: Record<string, {
     code: "MHRM", title: "Human Resources Management",
     level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 7 Title (confirm registration number with NBSI)",
     objective: "This Mastère builds expertise in leading people strategy and organisational development within international companies, preparing graduates for senior HR leadership roles.",
     semesters: [
       { label: "1st Semester", courses: ["International HR Strategy", "Organisational Behaviour", "International Finance", "Research Methodology"] },
@@ -141,7 +141,7 @@ const programs: Record<string, {
     code: "MLBM", title: "Luxury Brand Management",
     level: "Postgraduate — Mastère", duration: "2 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition", certification: " Level 7 Title (confirm registration number with NBSI)",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €", certification: " Level 7 Title (confirm registration number with NBSI)",
     objective: "This Mastère masters the strategic and creative dimensions of managing prestige brands, preparing graduates for leadership roles across global luxury markets.",
     semesters: [
       { label: "1st Semester", courses: ["Luxury Brand Strategy", "Heritage & Storytelling", "International Finance", "Research Methodology"] },
@@ -155,7 +155,7 @@ const programs: Record<string, {
     code: "BBS-IBM", title: "BBS — International Business Management",
     level: "Undergraduate — BBS", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €",
     certification: "Bachelor in Business Studies (BBS) — French/English",
     objective: "The BBS offers a rigorous academic training in management and strategy, grounded in the standards of leading business schools. Designed to develop operational, internationally-minded profiles, it builds mastery of business fundamentals, analytical capability, and the agility to thrive in demanding international environments.",
     semesters: [
@@ -169,7 +169,7 @@ const programs: Record<string, {
     code: "BBS-HTM", title: "BBS — Hotel and Tourism Management",
     level: "Undergraduate — BBS", duration: "3 Years",
     intake: "September / October or January / February",
-    fees: "Contact admissions for current tuition",
+    fees: "Student residing in france: 1700 € / European Students: 2800 € / Non European Students: 4500 €",
     certification: "Bachelor in Business Studies (BBS) — French/English",
     objective: "This BBS track prepares operationally-minded graduates for the hospitality and tourism sector, combining rigorous business fundamentals with sector-specific operational training and an international outlook.",
     semesters: [
