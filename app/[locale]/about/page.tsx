@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import FadeUp from "../components/FadeUp";
 import Link from "next/link";
 import { useTranslations,useLocale  } from "next-intl";
@@ -9,7 +7,6 @@ export default function AboutPage() {
 
   return (
     <>
-      <Navbar />
 
       {/* Hero */}
 
@@ -166,7 +163,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

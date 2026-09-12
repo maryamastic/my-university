@@ -2,8 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 import FadeUp from "./components/FadeUp";
 import ProgramCard from "./components/ProgramCard";
 import HeroSection from "./components/HeroSection";
@@ -38,7 +37,6 @@ const programs = [
 
   return (
     <>
-      <Navbar />
  <HeroSection t={t} locale={locale} />
  {/* ── STATS ── */}
       <section style={{ background: "#e84e0f", padding: "3.5rem 0" }}>
@@ -149,7 +147,6 @@ const programs = [
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

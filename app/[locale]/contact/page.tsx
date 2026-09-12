@@ -2,8 +2,7 @@
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
 
 
 export default function ContactPage() {
@@ -63,7 +62,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <Navbar />
 
       {/* ── HERO ── */}
       <section style={{
@@ -299,7 +297,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

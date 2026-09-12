@@ -28,11 +28,11 @@ export default function Footer() {
   const locale = useLocale();
 
   return (
-    <footer style={{ background: "#0d1b2e" }}>
-      <div className="container" style={{ padding: "48px 2rem 36px", display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "36px" }}>
+    <footer style={{ background: "#0d1b2e", overflowX: "hidden" }}>
+      <div className="container footer-grid" style={{ padding: "48px 2rem 36px", display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "36px" }}>
 
         {/* Brand */}
-        <div>
+        <div className="footer-brand">
           <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "22px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Nexora</div>
           <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "22px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05, marginBottom: "12px" }}>Business School International</div>
           <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, fontStyle: "italic", color: "rgba(255,255,255,0.82)", lineHeight: 1.6, marginBottom: "14px", whiteSpace: "pre-line" }}>
@@ -88,11 +88,11 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", padding: "14px 0" }}>
-        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
+        <div className="container footer-bottom" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
           <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.25)" }}>
             © {new Date().getFullYear()} {t("copyright")}
           </p>
-          <div style={{ display: "flex", gap: "20px" }}>
+          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
             {[t("legal"), t("privacy"), t("accessibility")].map((item) => (
               <Link key={item} href="#"
                 style={{ fontFamily: "Open Sans, sans-serif", fontSize: "11px", color: "rgba(255,255,255,0.25)", textDecoration: "none", transition: "color 0.2s" }}
@@ -104,6 +104,29 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .footer-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 2rem !important;
+            padding: 2.5rem 1.5rem 2rem !important;
+          }
+          .footer-brand {
+            grid-column: 1 / -1 !important;
+            margin-bottom: 0.5rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .footer-bottom {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 }

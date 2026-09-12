@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
@@ -74,6 +75,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   const openMenu = (key: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -82,6 +85,15 @@ export default function Navbar() {
   const closeMenu = () => { closeTimer.current = setTimeout(() => setActive(null), 100); };
   const cancelClose = () => { if (closeTimer.current) clearTimeout(closeTimer.current); };
   useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
+
+  // Lock body scroll while the mobile drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => { document.body.style.overflow = prev; };
+    }
+  }, [mobileOpen]);
 
   // Nav items use translation keys
   const navItems = [
@@ -225,7 +237,7 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button onClick={() => setMobileOpen(!mobileOpen)} className="hamburger"
-            style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "1.5rem", padding: "0 1rem" }}>
+            style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "1.5rem", padding: "0.5rem 0.5rem" }}>
             {mobileOpen ? "✕" : "☰"}
           </button>
         </div>
@@ -274,59 +286,129 @@ export default function Navbar() {
           )}
         </AnimatePresence>
 
-        {/* ── MOBILE MENU ── */}
+      </nav>
+
+      {/* ── MOBILE DRAWER (slides in from the right) ──
+          Rendered through a portal directly into <body> so it is
+          always positioned relative to the real viewport, regardless
+          of any transformed/positioned ancestor elsewhere on the page. */}
+      {mounted && createPortal(
         <AnimatePresence>
           {mobileOpen && (
-            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.28 }}
-              style={{ background: "#080f1c", overflow: "hidden", position: "absolute", top: "100%", left: 0, right: 0, zIndex: 400, maxHeight: "80vh", overflowY: "auto" }}>
-              <div style={{ padding: "1rem 2rem 2rem" }}>
-                {navItems.map((item) => (
-                  <div key={item.key} style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-                    {item.hasMega ? (
-                      <>
-                        <button onClick={() => setMobileExpanded(mobileExpanded === item.key ? null : item.key)}
-                          style={{ width: "100%", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff" }}>
-                          {item.label}
-                          <span style={{ fontSize: "9px", opacity: 0.6 }}>{mobileExpanded === item.key ? "▲" : "▾"}</span>
-                        </button>
-                        {mobileExpanded === item.key && megaData[item.key] && (
-                          <div style={{ paddingLeft: "16px", paddingBottom: "12px" }}>
-                            {megaData[item.key].cols.map((col) => (
-                              <div key={col.head} style={{ marginBottom: "12px" }}>
-                                <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "9px", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "6px" }}>{col.head}</p>
-                                {col.links.map((link) => (
-                                  <Link key={link.href} href={`/${locale}${link.href}`}
-                                    onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
-                                    style={{ display: "block", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "4px 0" }}>
-                                    {link.label}
-                                  </Link>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      <Link href={`/${locale}${item.href}`} onClick={() => setMobileOpen(false)}
-                        style={{ display: "block", padding: "12px 0", fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff", textDecoration: "none" }}>
-                        {item.label}
-                      </Link>
-                    )}
-                  </div>
-                ))}
-                <div style={{ marginTop: "20px" }}>
-                  <Link href={`/${locale}/contact`} className="btn btn-orange"
-                    style={{ width: "100%", justifyContent: "center" }}
-                    onClick={() => setMobileOpen(false)}>
-                    {t("applyOnline")}
-                  </Link>
+            <>
+              {/* backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "rgba(0, 0, 0, 0.6)",
+                  zIndex: 9998,
+                  pointerEvents: "auto",
+                }}
+              />
+              {/* drawer panel */}
+              <motion.div
+                initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                style={{
+                  backgroundColor: "#080f1c",
+                  position: "fixed",
+                  top: 0,
+                  right: 0,
+                  bottom: 0,
+                  height: "100%",
+                  width: "85vw",
+                  maxWidth: "360px",
+                  zIndex: 9999,
+                  overflowY: "auto",
+                  overflowX: "hidden",
+                  boxSizing: "border-box",
+                  boxShadow: "-8px 0 30px rgba(0,0,0,0.4)",
+                }}>
+                <div style={{ display: "flex", justifyContent: "flex-end", padding: "1rem 1.25rem 0" }}>
+                  <button onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
+                    style={{ background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "1.4rem" }}>
+                    ✕
+                  </button>
                 </div>
-              </div>
-            </motion.div>
+                <div style={{ padding: "0.5rem 1.5rem 2rem" }}>
+                  {navItems.map((item) => (
+                    <div key={item.key} style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+                      {item.hasMega ? (
+                        <>
+                          <button onClick={() => setMobileExpanded(mobileExpanded === item.key ? null : item.key)}
+                            style={{ width: "100%", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff" }}>
+                            {item.label}
+                            <motion.span
+                              animate={{ rotate: mobileExpanded === item.key ? 180 : 0 }}
+                              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                              style={{ display: "inline-block", fontSize: "9px", opacity: 0.6 }}>
+                              ▾
+                            </motion.span>
+                          </button>
+                          <AnimatePresence initial={false}>
+                            {mobileExpanded === item.key && megaData[item.key] && (
+                              <motion.div
+                                key="submenu"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ height: { duration: 0.32, ease: [0.4, 0, 0.2, 1] }, opacity: { duration: 0.22 } }}
+                                style={{ overflow: "hidden" }}>
+                                <div style={{ paddingLeft: "16px", paddingBottom: "12px" }}>
+                                  {megaData[item.key].cols.map((col, colIdx) => (
+                                    <motion.div key={col.head}
+                                      initial={{ opacity: 0, y: -6 }}
+                                      animate={{ opacity: 1, y: 0 }}
+                                      transition={{ duration: 0.25, delay: 0.05 + colIdx * 0.04 }}
+                                      style={{ marginBottom: "12px" }}>
+                                      <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "9px", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "6px" }}>{col.head}</p>
+                                      {col.links.map((link) => (
+                                        <Link key={link.href} href={`/${locale}${link.href}`}
+                                          onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
+                                          style={{ display: "block", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "4px 0", whiteSpace: "normal", wordBreak: "break-word", overflowWrap: "break-word", transition: "color 0.15s" }}
+                                          onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+                                          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
+                                          {link.label}
+                                        </Link>
+                                      ))}
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </>
+                      ) : (
+                        <Link href={`/${locale}${item.href}`} onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
+                          style={{ display: "block", padding: "12px 0", fontFamily: "Montserrat, sans-serif", fontSize: "13px", fontWeight: 700, color: "#fff", textDecoration: "none" }}>
+                          {item.label}
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                  <div style={{ marginTop: "20px" }}>
+                    <Link href={`/${locale}/contact`} className="btn btn-orange"
+                      style={{ width: "100%", justifyContent: "center" }}
+                      onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}>
+                      {t("applyOnline")}
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </>
           )}
-        </AnimatePresence>
-      </nav>
+        </AnimatePresence>,
+        document.body
+      )}
 
       <style>{`
         @media (max-width: 960px) {
