@@ -1,3 +1,4 @@
+"use client";
 import FadeUp from "../components/FadeUp";
 import Link from "next/link";
 import { useTranslations,useLocale  } from "next-intl";
@@ -66,8 +67,7 @@ export default function AboutPage() {
 
       {/* Mission */}
       <section className="section" style={{ background: "#fff" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
-          <FadeUp>
+<div className="container about-mission-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>          <FadeUp>
             <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "0.75rem" }}>Our Mission</p>
             <h2 style={{ fontFamily: "Playfair Display, serif", fontSize: "clamp(1.8rem, 3vw, 2.8rem)", fontWeight: 900, color: "#0f2041", marginBottom: "0.75rem" }}>Education That Transforms Lives</h2>
             <div style={{ width: "48px", height: "3px", background: "#e84e0f", marginBottom: "1.5rem" }} />
@@ -75,8 +75,7 @@ export default function AboutPage() {
             <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.95rem", color: "#6b7280", lineHeight: 1.85 }}>We foster an environment where intellectual curiosity thrives, diverse perspectives are celebrated, and every student is empowered to reach their full potential.</p>
           </FadeUp>
           <FadeUp delay={0.15}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
-              {[{ n: "1969", l: "Year Founded" }, { n: "5,000+", l: "Students" }, { n: "200+", l: "Faculty Members" }, { n: "60+", l: "Nationalities" }].map((s) => (
+<div className="about-stats-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>              {[{ n: "1969", l: "Year Founded" }, { n: "5,000+", l: "Students" }, { n: "200+", l: "Faculty Members" }, { n: "60+", l: "Nationalities" }].map((s) => (
                 <div key={s.l} style={{ background: "#f8f4ef", border: "1px solid #e5e7eb", padding: "2rem", textAlign: "center" }}>
                   <p style={{ fontFamily: "Playfair Display, serif", fontSize: "2rem", fontWeight: 900, color: "#e84e0f" }}>{s.n}</p>
                   <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.75rem", color: "#6b7280", marginTop: "0.3rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>{s.l}</p>
@@ -162,7 +161,19 @@ export default function AboutPage() {
 </FadeUp>
         </div>
       </section>
-
+      <style jsx global>{`
+        @media (max-width: 900px) {
+          .about-mission-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2.5rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .about-stats-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </>
   );
 }

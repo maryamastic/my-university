@@ -3,8 +3,7 @@ import { useLocale, useTranslations } from "next-intl";
 import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+
 import FadeUp from "../../components/FadeUp";
 
 const WHATSAPP = "33745932244";
@@ -225,7 +224,6 @@ if (!p) notFound();
 
   return (
     <>
-      <Navbar />
 
       {/* ── HERO ── */}
       <section className="prog-hero" style={{ minHeight: "60vh", position: "relative", display: "flex", alignItems: "center", overflow: "hidden", padding: "8rem 0 5rem" }}>
@@ -363,7 +361,6 @@ if (!p) notFound();
         </div>
       </section>
 
-      <Footer />
 
       {/* ── MOBILE RESPONSIVE OVERRIDES ── */}
       <style jsx global>{`

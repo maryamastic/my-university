@@ -1,7 +1,6 @@
 "use client";
 import { useTranslations, useLocale } from "next-intl";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+
 import FadeUp from "../../components/FadeUp";
 import Link from "next/link";
 
@@ -18,7 +17,6 @@ export default function BachelorsPage() {
 
   return (
     <>
-      <Navbar />
 
       {/* Hero */}
       {/* Hero — Bachelors */}
@@ -137,7 +135,6 @@ export default function BachelorsPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

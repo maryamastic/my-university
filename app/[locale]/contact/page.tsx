@@ -130,9 +130,8 @@ export default function ContactPage() {
         </div>
       </section>
       {/* ── MAIN CONTENT ── */}
-      <section style={{ background: "#fff", padding: "5rem 0 6rem" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "5rem", alignItems: "start" }}>
-
+   <section style={{ background: "#fff", padding: "5rem 0 6rem" }}>
+  <div className="container contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "5rem", alignItems: "start" }}>
           {/* ── LEFT: CONTACT INFO ── */}
           <div>
             {/* Section label */}
@@ -226,8 +225,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
 
                 {/* Name + Email */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-                  <div>
+<div className="contact-name-email" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>                  <div>
                     <label style={labelStyle}>{t("nameLabel")} *</label>
                     <input required style={inputStyle} placeholder={t("namePlaceholder")}
                       value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -296,7 +294,19 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
+      <style jsx global>{`
+        @media (max-width: 900px) {
+          .contact-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2.5rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .contact-name-email {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </>
   );
 }
