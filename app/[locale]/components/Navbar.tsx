@@ -10,8 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
 function LangSwitcher() {
   const locale = useLocale();
   const router = useRouter();
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+const pathname = usePathname();
+const [open, setOpen] = useState(false);
 
   const switchTo = (newLocale: string) => {
     const segments = pathname.split("/");
@@ -74,6 +74,13 @@ export default function Navbar() {
   const [active, setActive] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [mobileSubExpanded, setMobileSubExpanded] = useState<string | null>(null);
+  const pathname = usePathname();
+useEffect(() => {
+  setMobileOpen(false);
+  setMobileExpanded(null);
+  setMobileSubExpanded(null);
+}, [pathname]);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
@@ -363,23 +370,53 @@ export default function Navbar() {
                                 exit={{ height: 0, opacity: 0 }}
                                 transition={{ height: { duration: 0.32, ease: [0.4, 0, 0.2, 1] }, opacity: { duration: 0.22 } }}
                                 style={{ overflow: "hidden" }}>
-                                <div style={{ paddingLeft: "16px", paddingBottom: "12px" }}>
+                                                             <div style={{ paddingLeft: "16px", paddingBottom: "12px" }}>
                                   {megaData[item.key].cols.map((col, colIdx) => (
                                     <motion.div key={col.head}
                                       initial={{ opacity: 0, y: -6 }}
                                       animate={{ opacity: 1, y: 0 }}
                                       transition={{ duration: 0.25, delay: 0.05 + colIdx * 0.04 }}
-                                      style={{ marginBottom: "12px" }}>
-                                      <p style={{ fontFamily: "Montserrat, sans-serif", fontSize: "9px", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "6px" }}>{col.head}</p>
-                                      {col.links.map((link) => (
-                                        <Link key={link.href} href={`/${locale}${link.href}`}
-                                          onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}
-                                          style={{ display: "block", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "4px 0", whiteSpace: "normal", wordBreak: "break-word", overflowWrap: "break-word", transition: "color 0.15s" }}
-                                          onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-                                          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
-                                          {link.label}
-                                        </Link>
-                                      ))}
+                                      style={{ marginBottom: "8px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                                      <button
+                                        onClick={() => setMobileSubExpanded(mobileSubExpanded === col.head ? null : col.head)}
+                                        style={{ width: "100%", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", fontFamily: "Montserrat, sans-serif", fontSize: "9px", fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase", color: "#e84e0f" }}>
+                                        {col.head}
+                                        <motion.span
+                                          animate={{ rotate: mobileSubExpanded === col.head ? 180 : 0 }}
+                                          transition={{ duration: 0.2 }}
+                                          style={{ display: "inline-block", fontSize: "8px", opacity: 0.7 }}>
+                                          ▾
+                                        </motion.span>
+                                      </button>
+                                      <AnimatePresence initial={false}>
+                                        {mobileSubExpanded === col.head && (
+                                          <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ height: { duration: 0.25, ease: [0.4, 0, 0.2, 1] }, opacity: { duration: 0.18 } }}
+                                            style={{ overflow: "hidden" }}>
+                                            <div style={{ paddingBottom: "8px" }}>
+                                              {col.links.map((link) => (
+                                                <Link key={link.href} href={`/${locale}${link.href}`}
+                                                  onClick={() => { setMobileOpen(false); setMobileExpanded(null); setMobileSubExpanded(null); }}
+                                                  style={{ display: "block", fontFamily: "Open Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.65)", textDecoration: "none", padding: "4px 0", whiteSpace: "normal", wordBreak: "break-word", overflowWrap: "break-word", transition: "color 0.15s" }}
+                                                  onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+                                                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}>
+                                                  {link.label}
+                                                </Link>
+                                              ))}
+                                              {col.showBtn && (
+                                                <Link href={`/${locale}/programs`}
+                                                  onClick={() => { setMobileOpen(false); setMobileExpanded(null); setMobileSubExpanded(null); }}
+                                                  style={{ display: "inline-block", marginTop: "6px", fontFamily: "Montserrat, sans-serif", fontSize: "11px", fontWeight: 700, color: "#e84e0f", textDecoration: "underline" }}>
+                                                  {t("mega.viewAll")}
+                                                </Link>
+                                              )}
+                                            </div>
+                                          </motion.div>
+                                        )}
+                                      </AnimatePresence>
                                     </motion.div>
                                   ))}
                                 </div>
