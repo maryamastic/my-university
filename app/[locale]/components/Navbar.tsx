@@ -186,26 +186,16 @@ useEffect(() => {
       </div>
 
       {/* ── MAIN NAVBAR ── */}
-      <nav style={{ background: "#0d1b2e", boxShadow: "0 2px 20px rgba(0,0,0,0.35)", position: "relative" }}>
-        <div className="container" style={{ display: "flex", alignItems: "stretch", justifyContent: "space-between", height: "64px" }}>
+<nav style={{ background: "#f3f4f6", boxShadow: "0 2px 12px rgba(0,0,0,0.12)", position: "relative" }}>        <div className="container" style={{ display: "flex", alignItems: "stretch", justifyContent: "space-between", height: "88px" }}>
 
           {/* Logo */}
-          <Link href={`/${locale}`} style={{ textDecoration: "none", display: "flex", alignItems: "center", paddingRight: "24px" }}>
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <img
-                  src="https://img.icons8.com/ios/50/e84e0f/eiffel-tower.png"
-                  width="36"
-                  height="36"
-                  alt="Eiffel Tower"
-                />
-                <div>
-                  <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#fff", lineHeight: 1.05 }}>Nexora</div>
-                  <div style={{ fontFamily: "Montserrat, sans-serif", fontSize: "18px", fontWeight: 800, color: "#e84e0f", lineHeight: 1.05 }}>Business School International</div>
-                </div>
-              </div>
-            </div>
-          </Link>
+<Link href={`/${locale}`} style={{ textDecoration: "none", display: "flex", alignItems: "center", paddingRight: "24px" }}>
+  <img
+    src="/images/logo.png"
+    alt="Nexora Business School International"
+    style={{ height: "100px", width: "auto", display: "block" }}
+  />
+</Link>
 
           {/* Desktop nav */}
           <div style={{ display: "flex", alignItems: "stretch" }} className="desktop-nav">
@@ -217,7 +207,7 @@ useEffect(() => {
                 <Link href={`/${locale}${item.href}`} style={{
                   background: "none", border: "none", cursor: "pointer",
                   fontFamily: "Montserrat, sans-serif", fontSize: "12px", fontWeight: 700,
-                  color: active === item.key ? "#fff" : "rgba(255,255,255,0.85)",
+color: active === item.key ? "#e84e0f" : "#0d1b2e",
                   padding: "0 14px", height: "100%",
                   display: "flex", alignItems: "center",
                   gap: item.hasMega ? "5px" : "0",
@@ -244,9 +234,9 @@ useEffect(() => {
 
           {/* Hamburger */}
           <button onClick={() => setMobileOpen(!mobileOpen)} className="hamburger"
-            style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "1.5rem", padding: "0.5rem 0.5rem" }}>
-            {mobileOpen ? "✕" : "☰"}
-          </button>
+  style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: "#0d1b2e", fontSize: "1.5rem", padding: "0.5rem 0.5rem" }}>
+  {mobileOpen ? "✕" : "☰"}
+</button>
         </div>
 
         {/* ── MEGA MENU ── */}
