@@ -256,5 +256,96 @@
   "privacy": "Privacy Policy",
   "accessibility": "Accessibility",
   "copyright": "Nexora Business School. All rights reserved."
-}
+},
+  "apply": {
+    "title": "Apply Now",
+    "breadcrumbHome": "Home",
+    "breadcrumbApply": "Apply",
+    "intro": "Complete the form below to start your application to Nexora Business School. Fields marked * are required.",
+    "personal": "Personal information",
+    "academic": "Most recent academic details",
+    "selection": "Program selection",
+    "documents": "Supporting documents",
+    "docNote": "Files must be JPG, JPEG, PNG or PDF, 3 MB maximum each.",
+    "lastName": "Last name",
+    "firstName": "First name",
+    "passportNumber": "Passport / ID number",
+    "gender": "Gender",
+    "phone": "Phone number",
+    "email": "Email",
+    "address": "Address",
+    "city": "City",
+    "postalCode": "Postal code",
+    "dob": "Date of birth",
+    "nationality": "Nationality",
+    "placeOfBirth": "Place of birth",
+    "countryOfBirth": "Country of birth",
+    "institution": "Institution name",
+    "degree": "Degree earned or level of study",
+    "frenchLevel": "French proficiency",
+    "englishLevel": "English proficiency",
+    "residence": "Country of residence",
+    "program": "Program",
+    "intake": "Intake",
+    "year": "Year of entry",
+    "fleLevel": "FLE level",
+    "specialisation": "Specialisation",
+    "language": "Language of study",
+    "reference": "Reference (type NA if none)",
+    "select": "Select…",
+    "genders": [
+      "Male",
+      "Female",
+      "Non-binary",
+      "Prefer not to answer"
+    ],
+    "residences": [
+      "France",
+      "Europe (excluding France)",
+      "Outside Europe"
+    ],
+    "languages": [
+      "English",
+      "French"
+    ],
+    "intakes": [
+      "September / October",
+      "January / February"
+    ],
+    "years": {
+      "bachelor": [
+        "1st year",
+        "2nd year",
+        "3rd year"
+      ],
+      "master": [
+        "1st year",
+        "2nd year"
+      ]
+    },
+    "programOptions": {
+      "bachelor": "Bachelor",
+      "master": "Master / MSc",
+      "dba": "DBA – Doctorate of Business Administration",
+      "fle": "FLE – French as a Foreign Language"
+    },
+    "docs": {
+      "passport": "Passport",
+      "photo": "Passport-size photo",
+      "cv": "CV",
+      "coverLetter": "Cover letter",
+      "diploma": "Copy of your most recent diploma",
+      "transcript": "Latest transcript",
+      "visa": "Residence permit / visa (if applicable)",
+      "languageCert": "Language certificate (IELTS, TOEFL, DELF, DALF…)"
+    },
+    "terms": "I have read and accept the terms and conditions",
+    "submit": "Submit application",
+    "sending": "Sending…",
+    "successTitle": "Application received",
+    "successText": "Thank you. Our admissions team will contact you by email shortly.",
+    "backHome": "Back to home",
+    "errorGeneric": "Something went wrong. Please try again or contact us.",
+    "errorFile": "{name} is not valid. Use JPG, PNG or PDF, up to 3 MB."
+  }
 }

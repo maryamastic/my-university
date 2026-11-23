@@ -177,7 +177,7 @@ export default function ContactPage() {
                   {t("phoneLabel")}
                 </p>
                 <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)" }}>
-                  +33 (0) 745932244
+                  +33 (0) 753 46 2275
                 </p>
               </div>
 
@@ -187,7 +187,7 @@ export default function ContactPage() {
                   {t("addressLabel")}
                 </p>
                 <p style={{ fontFamily: "Open Sans, sans-serif", fontSize: "0.85rem", color: "rgba(0, 0, 0, 0.75)", lineHeight: 1.8 }}>
-                  Paris, France
+                  17 boulevard pasteur 75015 ,Paris France
                 </p>
               </div>
 

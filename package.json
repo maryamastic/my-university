@@ -2,16 +2,17 @@
   "name": "my-university",
   "version": "0.1.0",
   "private": true,
-"scripts": {
-  "dev": "node --max-old-space-size=8192 node_modules/next/dist/bin/next dev",
+  "scripts": {
+    "dev": "node --max-old-space-size=8192 node_modules/next/dist/bin/next dev",
     "build": "next build --webpack",
-  "start": "next start",
-  "lint": "next lint"
-},
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
     "framer-motion": "^12.38.0",
     "next": "16.2.6",
     "next-intl": "^4.12.0",
+    "nodemailer": "^10.6.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "resend": "^6.12.4"
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "cross-env": "^10.1.0",

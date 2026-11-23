@@ -113,7 +113,7 @@ useEffect(() => {
   // Mega menu built from translations
   const megaData = {
     programs: {
-     cols: [
+    cols: [
   {
     head: t("mega.bachelorsHead"),
     links: [
@@ -121,11 +121,6 @@ useEffect(() => {
       { label: t("mega.bachelor2"), href: "/programs/sales-project-management" },
       { label: t("mega.bachelor3"), href: "/programs/hospitality-tourism-management" },
       { label: t("mega.bachelor4"), href: "/programs/entrepreneurship-startup-strategies" },
-    ],
-  },
-  {
-    head: t("mega.bbsHead"),
-    links: [
       { label: t("mega.bbs1"), href: "/programs/bbs-international-business-management" },
       { label: t("mega.bbs2"), href: "/programs/bbs-hotel-and-tourismmanagement" },
     ],
@@ -153,7 +148,7 @@ useEffect(() => {
     links: [
       { label: t("mega.all1"), href: "/programs" },
       { label: t("mega.all2"), href: "/programs/bachelors" },
-    { label: t("mega.all3"), href: "/programs/masters" },
+      { label: t("mega.all3"), href: "/programs/masters" },
     ],
     showBtn: true,
   },
@@ -227,7 +222,7 @@ color: active === item.key ? "#e84e0f" : "#0d1b2e",
 
           {/* Apply button */}
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }} className="desktop-nav">
-            <Link href={`/${locale}/contact`} className="btn btn-orange" style={{ fontSize: "11px" }}>
+            <Link href={`/${locale}/apply`} className="btn btn-orange" style={{ fontSize: "11px" }}>
               {t("applyOnline")}
             </Link>
           </div>
@@ -423,7 +418,7 @@ color: active === item.key ? "#e84e0f" : "#0d1b2e",
                     </div>
                   ))}
                   <div style={{ marginTop: "20px" }}>
-                    <Link href={`/${locale}/contact`} className="btn btn-orange"
+                    <Link href={`/${locale}/apply`} className="btn btn-orange"
                       style={{ width: "100%", justifyContent: "center" }}
                       onClick={() => { setMobileOpen(false); setMobileExpanded(null); }}>
                       {t("applyOnline")}

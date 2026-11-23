@@ -255,5 +255,96 @@
   "privacy": "Politique de confidentialité",
   "accessibility": "Accessibilité",
   "copyright": "Nexora Business School International. Tous droits réservés."
-}
+},
+  "apply": {
+    "title": "Candidater",
+    "breadcrumbHome": "Accueil",
+    "breadcrumbApply": "Candidater",
+    "intro": "Remplissez le formulaire ci-dessous pour démarrer votre candidature à Nexora Business School. Les champs marqués * sont obligatoires.",
+    "personal": "Informations personnelles",
+    "academic": "Parcours académique récent",
+    "selection": "Choix du programme",
+    "documents": "Pièces justificatives",
+    "docNote": "Les fichiers doivent être au format JPG, JPEG, PNG ou PDF, 3 Mo maximum chacun.",
+    "lastName": "Nom",
+    "firstName": "Prénom",
+    "passportNumber": "Numéro de passeport / pièce d'identité",
+    "gender": "Genre",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "address": "Adresse",
+    "city": "Ville",
+    "postalCode": "Code postal",
+    "dob": "Date de naissance",
+    "nationality": "Nationalité",
+    "placeOfBirth": "Lieu de naissance",
+    "countryOfBirth": "Pays de naissance",
+    "institution": "Nom de l'établissement",
+    "degree": "Diplôme obtenu ou niveau d'études",
+    "frenchLevel": "Niveau de français",
+    "englishLevel": "Niveau d'anglais",
+    "residence": "Pays de résidence",
+    "program": "Programme",
+    "intake": "Rentrée",
+    "year": "Année d'entrée",
+    "fleLevel": "Niveau FLE",
+    "specialisation": "Spécialisation",
+    "language": "Langue d'étude",
+    "reference": "Référence (saisir NA si aucune)",
+    "select": "Sélectionner…",
+    "genders": [
+      "Homme",
+      "Femme",
+      "Non-binaire",
+      "Préfère ne pas répondre"
+    ],
+    "residences": [
+      "France",
+      "Europe (hors France)",
+      "Hors Europe"
+    ],
+    "languages": [
+      "Anglais",
+      "Français"
+    ],
+    "intakes": [
+      "Septembre / Octobre",
+      "Janvier / Février"
+    ],
+    "years": {
+      "bachelor": [
+        "1re année",
+        "2e année",
+        "3e année"
+      ],
+      "master": [
+        "1re année",
+        "2e année"
+      ]
+    },
+    "programOptions": {
+      "bachelor": "Bachelor",
+      "master": "Master / MSc",
+      "dba": "DBA – Doctorat en Administration des Affaires",
+      "fle": "FLE – Français Langue Étrangère"
+    },
+    "docs": {
+      "passport": "Passeport",
+      "photo": "Photo d'identité",
+      "cv": "CV",
+      "coverLetter": "Lettre de motivation",
+      "diploma": "Copie de votre dernier diplôme",
+      "transcript": "Dernier relevé de notes",
+      "visa": "Titre de séjour / visa (le cas échéant)",
+      "languageCert": "Certificat de langue (IELTS, TOEFL, DELF, DALF…)"
+    },
+    "terms": "J'ai lu et j'accepte les conditions générales",
+    "submit": "Envoyer ma candidature",
+    "sending": "Envoi en cours…",
+    "successTitle": "Candidature reçue",
+    "successText": "Merci. Notre équipe admissions vous contactera très prochainement par e-mail.",
+    "backHome": "Retour à l'accueil",
+    "errorGeneric": "Une erreur est survenue. Réessayez ou contactez-nous.",
+    "errorFile": "{name} n'est pas valide. Utilisez JPG, PNG ou PDF, 3 Mo maximum."
+  }
 }
