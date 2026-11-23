@@ -14,8 +14,10 @@ export default function HeroSection({ t, locale }: HeroSectionProps) {
       <div style={{ position: "absolute", inset: 0, zIndex: 1 }} />
       <div style={{ position: "absolute", top: "-8rem", right: "-8rem", width: "38rem", height: "38rem", borderRadius: "50%", border: "1px solid rgba(201,168,76,0.1)", pointerEvents: "none", zIndex: 2 }} />
       <div style={{ position: "absolute", bottom: "4rem", left: "-5rem", width: "22rem", height: "22rem", borderRadius: "50%", border: "1px solid rgba(201,168,76,0.07)", pointerEvents: "none", zIndex: 2 }} />
+      {/* Orange bottom line (same as About page) */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "4px", background: "#e84e0f", zIndex: 3 }} />
 
-      <div className="container" style={{ position: "relative", zIndex: 3, paddingTop: "8rem" }}>
+      <div className="container" style={{ position: "relative", zIndex: 3, paddingTop: "8rem", paddingBottom: "5rem" }}>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
           style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.72rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "#e84e0f", marginBottom: "1.5rem" }}>
           {t("heroTag")}

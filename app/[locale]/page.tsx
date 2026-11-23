@@ -37,18 +37,12 @@ const programs = [
 
   return (
     <>
- <HeroSection t={t} locale={locale} />
- {/* ── STATS ── */}
-      <section style={{ background: "#e84e0f", padding: "3.5rem 0" }}>
-        <div className="container" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px,1fr))", gap: "2rem", textAlign: "center" }}>
-          {stats.map((s, i) => (
-            <FadeUp key={s.label} delay={i * 0.1}>
-              <p style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.8rem", fontWeight: 700, color: "#fff", lineHeight: 1 }}>{s.number}</p>
-              <p style={{ fontFamily: "DM Sans, sans-serif", fontSize: "0.75rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(247,247,247,0.65)", marginTop: "0.4rem" }}>{s.label}</p>
-            </FadeUp>
-          ))}
-        </div>
-      </section>
+ {/* Hero + orange bottom line (same as About page) */}
+      <div style={{ position: "relative" }}>
+        <HeroSection t={t} locale={locale} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "4px", background: "#e84e0f", zIndex: 5, pointerEvents: "none" }} />
+      </div>
+ 
 
       {/* ── ABOUT ── */}
       <section className="section" style={{ background: "#f8f4ef" }}>
@@ -140,7 +134,7 @@ const programs = [
               {t("ctaP")}
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href={`/${locale}/contact`} className="btn btn-orange">{t("applyOnline")}</Link>
+              <Link href={`/${locale}/apply`} className="btn btn-orange">{t("applyOnline")}</Link>
               <Link href={`/${locale}/contact`} className="btn btn-outline-white" style={{ color: "#f8f4ef" }}>{t("contactAdmissions")}</Link>
             </div>
           </FadeUp>

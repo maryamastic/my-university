@@ -74,15 +74,16 @@ export default function AboutPage() {
             <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.95rem", color: "#6b7280", lineHeight: 1.85, marginBottom: "1rem" }}>Our mission is to provide a transformative educational experience that equips students with the knowledge, skills, and character to lead with purpose in a complex world.</p>
             <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.95rem", color: "#6b7280", lineHeight: 1.85 }}>We foster an environment where intellectual curiosity thrives, diverse perspectives are celebrated, and every student is empowered to reach their full potential.</p>
           </FadeUp>
-          <FadeUp delay={0.15}>
-<div className="about-stats-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>              {[{ n: "1969", l: "Year Founded" }, { n: "5,000+", l: "Students" }, { n: "200+", l: "Faculty Members" }, { n: "60+", l: "Nationalities" }].map((s) => (
-                <div key={s.l} style={{ background: "#f8f4ef", border: "1px solid #e5e7eb", padding: "2rem", textAlign: "center" }}>
-                  <p style={{ fontFamily: "Playfair Display, serif", fontSize: "2rem", fontWeight: 900, color: "#e84e0f" }}>{s.n}</p>
-                  <p style={{ fontFamily: "Inter, sans-serif", fontSize: "0.75rem", color: "#6b7280", marginTop: "0.3rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>{s.l}</p>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
+             <FadeUp delay={0.15}>
+                        <div style={{ background: "#fff", border: "1px solid rgba(201,168,76,0.25)", padding: "3rem", position: "relative", boxShadow: "8px 8px 0 rgba(201,168,76,0.12)" }}>
+                          <div style={{ position: "absolute", top: "-1rem", left: "-1rem", width: "2rem", height: "2rem", border: "2px solid #e84e0f", borderRight: "none", borderBottom: "none" }} />
+                          <div style={{ position: "absolute", bottom: "-1rem", right: "-1rem", width: "2rem", height: "2rem", border: "2px solid #e84e0f", borderLeft: "none", borderTop: "none" }} />
+                          <blockquote style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.6rem", fontWeight: 300, fontStyle: "italic", color: "#1a1a2e", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+                            {t("quote")}
+                          </blockquote>
+                          <p style={{ fontSize: "0.75rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#e84e0f" }}>{t("quoteAuthor")}</p>
+                        </div>
+                      </FadeUp>
         </div>
       </section>
 

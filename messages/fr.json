@@ -45,10 +45,6 @@
     "ourPrograms": "Explorer les programmes",
     "applyOnline": "Candidater maintenant",
     "contactAdmissions": "Contacter les admissions",
-    "statsStudents": "Étudiants inscrits",
-    "statsEmployment": "Taux d'emploi",
-    "statsPartners": "Pays représentés",
-    "statsAlumni": "Partenaires industriels",
     "aboutLabel": "À propos",
     "aboutH2": "Un héritage d'excellence",
     "aboutH2Highlight": "académique",
@@ -114,7 +110,9 @@
     "ctaH2": "Rejoignez notre histoire",
     "ctaP": "Les admissions sont ouvertes pour la prochaine année académique.",
     "applyNow": "Candidater",
-    "viewPrograms": "Voir les programmes"
+    "viewPrograms": "Voir les programmes",
+        "quote": "\u00ab L\u2019éducation n\u2019est pas le remplissage d\u2019un seau, mais l\u2019allumage d\u2019un feu. \u00bb",
+    "quoteAuthor": "— William Butler Yeats"
   },
   "programs": {
   "heroLabel": "Offre académique",

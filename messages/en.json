@@ -44,10 +44,6 @@
     "ourPrograms": "Explore Programs",
     "applyOnline": "Apply Now",
     "contactAdmissions": "Contact Admissions",
-    "statsStudents": "Students Enrolled",
-    "statsEmployment": "Employment Rate",
-    "statsPartners": "Countries Represented",
-    "statsAlumni": "Industry Partners",
     "aboutLabel": "About Us",
     "aboutH2": "A Legacy of Academic",
     "aboutH2Highlight": "Excellence",
@@ -113,7 +109,9 @@
     "ctaH2": "Become Part of Our Story",
     "ctaP": "Admissions are open for the upcoming academic year.",
     "applyNow": "Apply Now",
-    "viewPrograms": "View Programs"
+    "viewPrograms": "View Programs",
+    "quote": "\u201cEducation is not the filling of a pail, but the lighting of a fire.\u201d",
+    "quoteAuthor": "— William Butler Yeats"
   },
   "programs": {
   "heroLabel": "Academic Offerings",
